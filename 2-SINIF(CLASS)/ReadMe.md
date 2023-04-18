@@ -894,3 +894,99 @@ class Banka
 }
 
 ```
+
+***
+# Nesne Tabanlı Programlama #4 - Class Yapısına Dair Son Dokunuşlar
+## Class İçerisinde Tanımlanan Class Sınıf Elemanı mıdır?
+- `class` `namespace` dışında, `namespace` içinde ya da herhangi bir `class`ın içerisinde tanımlanabilir.
+
+- field, property, method, indexer `class` elemanıdır. Aynı zamanda constructor, deconstruct, static constructor da sınıf elemanıdır.
+
+- `class` içinde `class` tanımlayabiliriz biz buna nested `class`lar deriz.
+
+- Nested type `class`lar `class`ın elemanı olmazlar. Koca uygulamada o kadar namespace varken tanımlayacak yer bulamamışsın gitmişsin nested type olarak `class`ı tanımlamışsın. Bu da bir `class`tır nihayetinde bununda kendine göre memberları olacaktır. Bununda nesneleri olacaktır. Sadece tanımlandığı yer bir `class`ın içerisidir.
+
+- Bir `class`ın elemalarına `class`ın nesnesi üzerinden erişebiliriz. Eğer ki nested `class`ta bir member olsaydı `class` üzerinden içinde tanımlanmış olan `class`a bir şekilde erişebilmem lazımdı.
+
+- Bir `class` içerisinde tanımlanmış nested type dediğimiz `class`lar sınıfın elemanı olamaz!
+
+- nested `class`lar üstteki `class`ın sadece isminin altındadır. Yani üst `class`ın ismi üzerinden erişilebilir.
+
+- `.` operatörüyle giden kod hani zincirleme gidiyor en sonda ne varsa o kodun türü o dur.
+
+```C#
+#region Class İçerisinde Tanımlanan Class Sınıf Elemanı mıdır?
+MyClass m1 = new();
+MyClass.MyClass2 m2 = new MyClass.MyClass2();
+#endregion
+
+class MyClass
+{
+    int a;
+    public int MyProperty { get; set; }
+    public void X() { }
+    public void X(int a) { }
+
+    public int this[int a]
+    {
+        get { return 0; }
+    }
+
+    class MyClass2 { }
+}
+```
+
+
+## Class Elemanlarına Açıklama Satırı Nasıl Eklenir?
+- Sınıfa ya da sınıfın altındaki herhangi bir member'a bir açıklama eklemek istiyorsanız yapmanız gereken şey açıklama ekleyeceğiniz yapının başına gelip `///` koyarsak eğer summary dediğimiz yapıyı getirecektir. Bu summary'inin içine yazmış olduğunuz açıklama senin ilgili member'a eklenecek açıklamadır.
+
+- `//` yorum satırı anlamına gelir.
+
+- Sen `///` koyduğun anda hangi yapının üzerinde bunu yapıyorsan eğer o altındaki yapılanmaya göre bir format bir taslak çıkaracaktır.
+
+- Açıklama satırları bizim kendi adımıza yazdığımız kodları daha sonraki süreçlerde geriye dönüp baktığımızda daha hızlı kavrayabilmek ne amaçla kodu yazdığımızı anlayabilmemiz için oluşturulması gereken notlardır. Nihayetinde kodun açıklamasını izahatini yapmamızı sağlayan yapılanmalardır.
+
+- Özellikle sen kodun içerisine yorum satırı olarak bu açıklama satırlarını eklersen eğer ilgili yorumu görebilmen lazım. Halbuki editörümüz summary yapılanmasıyla direkt türün üzerinden ya da ilgili member'ın üzerinden sana açıklamayı direkt gösterebilmektedir. Burada daha hızlı bir şekilde `class` ya da member'ın neye yaradığını öğrenebilmektesin. 
+ 
+- Hem kendi yazmış olduğun kodlar için kendine hatırlatıcı bir unsur olacaktır. Hemde asıl önemlisi olan senin dışında senden sonra göreve devam edecek olan ya da sisteme daha sonradan dahil olan developer'ın ne olduğuna dair bu kodun açıklanması sistemdeki kodların ne olduğuna dair hızlı bir şekilde anlamasını sağlayacak bir dökümantasyon görevi gören yapılanmalardır. 
+
+- Bu açıklama satırlarını çokta abartmamak lazım. Oturupta böyle destan yazmayacaksınız. Mümkün mertebe kısa ve anlaşılır yazmanız yeterli olacaktır.
+
+```C#
+#region Class Elemanlarına Açıklama Satırı Nasıl Eklenir?
+Random random = new();
+MyClass myClass = new MyClass();
+myClass.X();
+#endregion
+
+/// <summary>
+/// Bu bir örnek classtır
+/// </summary>
+class MyClass
+{
+    int a;
+
+    /// <summary>
+    /// Bu bir property'dir.
+    /// </summary>
+    public int MyProperty { get; set; }
+
+    /// <summary>
+    /// Bu bir örnek metottur.
+    /// </summary>
+    public void X() { }
+
+    /// <summary>
+    /// Bu bir örnek metot overload'ıdır.
+    /// </summary>
+    /// <param name="a">a parametresi</param>
+    public void X(int a) { }
+
+    public int this[int a]
+    {
+        get { return 0; }
+    }
+
+    class MyClass2 { }
+}
+```

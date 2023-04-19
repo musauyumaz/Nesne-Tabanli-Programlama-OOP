@@ -1,5 +1,5 @@
 ---
-modified: 2023-04-17T11:31:51.277Z
+modified: 2023-04-19T10:48:29.410Z
 title: "Nesne Tabanlı Programlama #2 - Class Kavramı"
 ---
 
@@ -249,6 +249,7 @@ class OrnekModel
 }
 ```
 
+## C# Examples
 ```C#
 class MyClass2
 {
@@ -952,6 +953,7 @@ class MyClass
 
 - Bu açıklama satırlarını çokta abartmamak lazım. Oturupta böyle destan yazmayacaksınız. Mümkün mertebe kısa ve anlaşılır yazmanız yeterli olacaktır.
 
+## C# Examples
 ```C#
 #region Class Elemanlarına Açıklama Satırı Nasıl Eklenir?
 Random random = new();
@@ -988,5 +990,113 @@ class MyClass
     }
 
     class MyClass2 { }
+}
+```
+
+***
+# Nesne Tabanlı Programlama #5 - this Keyword'ü Nedir? İşlevleri Nelerdir?
+- `this` keywordü 3 amaçla kullanılır;
+    1. Sınıfın nesnesini temsil etme durumudur ki genellikle bu amaçla kullanılır.
+    2. Aynı isimdeki field ile metot parametrelerini ayırmak için kullanılan `this` keywordüdür. Bu 1. ile aynı amaca hizmet eden bir keyword yapılanması.
+    3. Bir constructor'dan başka bir constructor'ı çağırmak için kullanılan keyworddür.
+
+## this Keywordünün Kullanıldığı Durum - 1. Sınıfın Nesnesini Temsil Eder
+- `this` keywordü direkt sınıf içerisinde kullanılan ve sınıfın içerisindeki memberlarda kullanılan bir keyworddür.
+
+- `this` keywordü programatik bir keyword yani herhangi bir yerde çağıramazsınız sadece memberların içerisinde çağırmanız gerekiyor. Haliyle field, property, metot, indexer ya da constructor, deconstructor, desctructor bunlar gibi memberlarda çağırılır
+
+- Elimizdeki bir `class`tan istediğimiz kadar nesne oluşturabiliyoruz. Örneğin bir nesne oluşturduk Bu sınıftan oluşturulan bu nesneyi sınıfın modellemesi esnasında temsil etmemi sağlayan keyword `this` keywordüdür.
+
+- `this` keywordünü kullanarak `class`tan üretilecek olan nesneyi `class`ta temsil edebiliyorum.
+
+- İlgili sınıftan üretilen her bir nesneyi `this` keywordü ile temsil edebiliyoruz. 
+
+- İlgili sınıftan oluşturulmuş olan nesneyi sınıf modellemesinde temsil etmeni sağlayan keyword `this` keywordüdür. Ama bu nesnelerden herhangi birini temsil etmez. Oluşturulan nesneyi temsil eder. Yani nesne açısından baktığın zaman nesnenin içerisindeki `this` keywordü nesneyi bağlar. 
+
+- O anki nesne ne ise bu oluşturulmuş olan binlerce nesnenin her birini nesne üzerinden daha doğrusu nesne modellemesi üzerinden temsil etmeni sağlayan keyword `this` keywordüdür.
+
+- Nesne modellemesi içerisinde o modelden o `class`tan üretilmiş olan nesneyi temsil edebiliyorsam `this` keywordüyle `this` ile `.` operatörünü kullandığımda ilgili nesneden erişebildiğim bütün memberlara erişebilirim.
+
+- static yapılanmalarda `this` keywordune erişemeyiz.
+
+- field, property, metot, indexer ya da constructor, deconstructor, desctructor'da `this` keywordünü sen kullanıp o modelden üretilmiş olan nesneleri o anlık temsil edip farklı işlemler gerçekleştirebilirsin.
+
+```C#
+#region 1. Sınıfın Nesnesini Temsil Eder
+MyClass m1 = new();
+MyClass m2 = new();
+m1.X();
+m2.X();
+#endregion
+
+class MyClass
+{
+    public void X()
+    {
+        this.X();
+    }
+}
+```
+## this Keywordünün Kullanıldığı Durum - 2. Aynı İsimde Field İle Metot Parametrelerini Ayırmak için Kullanılır
+- Esasında bu özellik 1. özelliğinden gelmektedir.
+
+- Bir sistemde adı üstünden değişkene erişirken her zaman yakın olana erişir.
+
+- Elindeki field property metot isimleri bazen senin o anki kullanmış olduğun metodun parametre ismiyle birebir aynı şekilde olabiliyor. İşte böyle durumda `class`ın member'ı olan yapılanmayla o anki metodun parametresini ayırabilmek için `this` keywordünü kullanıyorsun.
+
+- Buradaki kullanımın altında yatan sebepte yine nesneyi temsil etmesi. Nihayetinde nesneyi temsil ettiğinden dolayı nesne metottan daha geniş bir kavram haliyle nesnenin içerisindeki member'a erişebilirsin. Burada `this` ile `.` operatörünü kullanırsam metodun içindeki parametre gelmez. `this` dediğinde artık nesnenin memberları gelir.
+
+- `this` keywordü ilgili `class` yapılanmasının o anki nesnesine karşılık gelir.
+
+- `this` kullanmak zorunda değiliz. 
+
+- Ben bir metodun içerisinde herhangi bir field'a/metoda/property'e direkt isminden erişebilirim. Sen burada `this`i kullansanda kullanmasanda compiler seviyesinde zaten otomatik `this` kullanılmakta. Sen kullanmak zorunda değilsin. Ama bazı dillerde zorundasın. TypeScript gibi.
+
+- C# programlama dilinde `this` kullanılmak zorunda değildir.
+
+- Sen sınıfın/sınıf modelinin içerisinde nesneyi temsil edecek `this`i kullanmasanda esasında compiler seviyesinde `this` keywordü zaten kullanılmakta.
+
+- Parametreyle memberların isimleri aynıysa bunları ayırabilmek için kesinlikle `this`e ihtiyacın var. Aksi taktirde senin `this` kullanma ihtiyacın yok.
+## this Keywordünün Kullanıldığı Durum - 3. Bir Constructer'dan Başka Bir Constructer'ı Çağırmak İçin Kullanılır
+- Bir nesnenin oluşum sürecinde ilk tetiklenen fonksiyonlardır Constructor yapıcı/kurucu fonksiyonlarımız.
+
+- Burada devasa mimariler oluşturabiliyoruz. 
+    * Örneğin Exception sınıfları.
+
+- Bir sınıfı inşa ederken farklı constructor'ları tek elden tetikleyebilmemizi sağlayan mimarisel bir manevra getiriyor `this` keywordü.
+
+## C# Examples
+```C#
+namespace oop_sinif;
+class Program
+{
+    static void Main(string[] args)
+    {
+        #region this Keywordü
+
+        #region 1. Sınıfın Nesnesini Temsil Eder
+        MyClass m1 = new();
+        MyClass m2 = new();
+
+        m1.X();
+        #endregion
+        #region 2. Aynı İsimde Field İle Metot Parametrelerini Ayırmak için Kullanılır
+        //`this` keywordü ilgili `class` yapılanmasının o anki nesnesine karşılık gelir.
+        //`this` kullanmak zorunda değiliz.
+        //
+        #endregion
+        #region 3. Bir Constructer'dan Başka Bir Constructer'ı Çağırmak İçin Kullanılır
+
+        #endregion
+        #endregion
+    }
+}
+class MyClass
+{
+    int a;
+    public void X(int a)
+    {
+        this.a;
+    }
 }
 ```

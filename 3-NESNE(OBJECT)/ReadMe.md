@@ -156,3 +156,190 @@ class MyClass
     }
 }
 ```
+
+***
+# Nesne Tabanlı Programlama #7 - Referans Nesne İlişkisi
+<img src="7.png" width="auto">
+
+## Referans Nedir?
+- RAM'in Stack bölgesinde tanımlanan ve Heap bölgesindeki nesneleri işaretleyen/referans eden değişkenlerdir/noktalardır.
+
+- Referanslar illa bir nesne referans etmek zorunda değildirler.
+
+- Eğer ki bir referans herhangi bir nesne işaretlemiyorsa null değerini alır.
+
+- Referans belleğin STACK bölgesinde tutulur. İşlevi HEAP bölgesindeki nesneleri işaretlemektir.
+
+- Referans STACK bölgesinde tanımlanan belirli bir iş yapan değişkenler ya da noktalardır.
+
+- STACK'te `int`, `bool`, `char` tutabiliyorum yani değer türlü tüm değişkenlerimi değerlerini hepsini burada tutabiliyorum. Amma velakin referans türlü değerlere geçtiğimizde değerler HEAP'te tutulurken STACK'te referanslar tutulur yani değişkenin kendisi tutulur ama karşılığı olacak olan değer HEAP'te tutuluyor.
+
+- Referans `class`, `interface`, `abstract class`  yapılanmasıyla oluşturulabilir.
+  * Bir `class` oluşturursun bu `class` üzerinden oluşturduğun değişken senin referansın olacaktır. 
+
+- `interface`ler referans türlü değişkenlerdir yani referans noktası alınabilir değişkenlerdir.
+
+- Dolayısıyla bizim referanstan kastımız sadece `class`lar değil Bu `class`ın türevi olabilecek/akrabası olabilecek farklı yapılanmalardan da referans noktası oluşturup sen STACK'te çalışmana devam edebilirsin.
+
+- Bu referans noktaları ile HEAP'teki nesneleri referans edebiliriz. Nesne sade ve sadece `class`tan olabilmektedir.
+
+- İleride `abstract class`larda compiler seviyesinde nesne oluşturulduğundan bahsedeceğiz. `class` dediğimiz şey nesne demektir. Sen burada `interface`de olsa `abstract class`ta olsa ya da normal `class`ta olsa bunlardan referans oluşturabiliyorsun ileride göreceğimiz polimorfizm diyeceğimiz yapılanma sayesinde bu referanslar aracılığıyla kesinlikle `class`tan üretilmiş bir nesneyi referans edebiliyoruz. Başka bişeyi değil.
+
+- HEAP'teki `class`tan türetilen herhangi bir nesneyi işaretleyebilmek için bu referansı oluşturman lazım. Bu referansı oluşturmanı sağlayacak olan yapılarda `class`, `interface`, `abstract class`tır.
+
+- Aynı zamanda bir de referans oluşturmamızı sağlayan C# 9.0 ile gelen `record` yapılanması vardır.
+
+- `record` nesneye en yakın olan yapılanmadır.
+
+- Sen herhangi bir referans tanımlayıp STACK'e koyabilir ve kullanmayabilirsin. Dolayısıyla bunu yaptığın zaman yani bir referansı herhangi bir nesneyi işaretlemeyecek/referans etmeyecek şekilde oluşturduğun zaman default olarak `null` değerini alacaktır.
+
+- `class` elemanı olan değer türlü değişkenlerde/fieldlarda eğer ki herhangi bir değer vermiyorsak eğer fieldların/değişkenlerin değerleri varsayılan/default değerleridir.
+    * `int` => 0
+    * `double` => 0
+    * `bool` => `false`
+    * `char` => `/0`
+    * Referans türlü değişkenler => `null`
+
+<img src="8.png" width="auto">
+
+## Stack - Heap İlişkisi
+- `new` operatörünün yanında bildirilen tip neyse o tipte bir nesneyi HEAP'e yerleştirir.
+
+- Temel prosedürel programlama da `=` operatör assign operatörüdür. Eğer ki OOP'de çalışıyorsak yani üretilmiş bir objeyi bir referansla işaretlemek istiyorsak yine `=` operatörünü kullnıyoruz ama buradaki sorumluluğu değişiyor assign değil referans etme ya da işaretleme operatörü oluyor.
+
+- Nesneler neden referansla işaretleniyor? Neden referans kullanıyoruz?
+    * Developer olarak biz bilgisayarımda sabit diske direkt erişebiliyorum belirli yetkilerim varsa register denilen belleğe erişebiliyorum. Bellekte STACK'e erişebiliyorum static yapılanmaya erişebiliyorum. Amma velakin HEAP'e erişemiyorum. Dolayısıyla ben HEAP'teki herhangi bir değere/nesneye erişebilmek için HEAP'e dolaylı yoldan erişmem gerekecek haliyle HEAP'e erişebilen ve benimde erişebildiğim bir başka yapılanmayı kullanamam gerekecek. İşte burada STACK devreye giriyor. Biz STACK'e erişebiliyoruz STACK'teki referanslarda HEAP'teki nesnelere erişebildiğinden dolayı bizde dolaylı yoldan STACK üzerinden HEAP'teki nesnelerimize erişebilmekteyiz. Bundan dolayı nesneleri referanslarla işaretliyoruz. Eğer ki bir nesneyi referansla işaretlemezsek ilgili nesneyi kullanamayız.
+
+- Referans üzerinden nesneye nasıl erişilebilir?
+    * Bir referans üzerinden nesneye erişebilmenin davranışı bildiğiniz değişken kullanım davranışlarıyla birebir aynı.
+
+- Nesne üzerindeki elemanlara nasıl erişilir?
+    * Elemanlara erişebilmek için yapmanız gereken yine nesneye erişmek. Haliyle ben referans üzerinden nesneye erişir ve member access operatörü(`.`) ile ilgili nesne içerisindeki dışarıya erişebilirliği olan/dışarıdan erişim izni olan/dışarıdan erişilebilir olan tüm elemanlara/memberlara erişebilirim.
+
+- Bir referans eğer ki bir nesneyi referans ediyorsa ben o referans üzerinden ilgili nesnenin üzerinde yapmış olduğum herhangi bir işlem daha doğrusu referansın üzerinde yapmış olduğum herhangi bir işlem referans/işaret ettiği nesne üzerinden gerçekleştirilir.
+
+- Eğer ki bir referans `null`sa yine member access operatörü(`.`) sayesinde siz ilgili referansın içerisindeki memberlara erişebilirsiniz. Eğer ki member'a erişip işlem yapmaya çalışırsanız bir nesnesi olmadığından dolayı bu member'ı tetikleyecek bu member'ı üzerinde çalıştıracak bir nesne/ekosistem/organizma olmayacağından dolayı burada null reference hatası verecektir.
+
+- `null` olan (yani nesnesi olmayan) referanslar üzerinden herhangi bir member'ı çağırıp işlemeye çalıştığımızda/çağırdığınızda bu durumda NullReference hatası verecektir.
+
+<img src="9.png" width="auto">
+<img src="10.png" width="auto">
+
+```C#
+MyClass m2 = null;
+```
+
+## Referanssız Nesneler
+- Her nesne de bir referans tarafından işaretlenmek zorunda değildir.
+
+- `new` operatörüyle herhangi bir `class`tan nesneyi oluşturup herhangi bir referansla işaretlemeyebilirsiniz.
+
+- Bir nesne oluşturulduğu an herhangi bir referansla işaretlenmezse eğer Heap'e yerleştirilir. Lakin bu nesneye tarafımızca birdaha erişemeyiz. Haliyle ilgili nesneyle aramızdaki tek diyalog oluşturma anıdır.
+
+- Referansız nesne üzerindeki elemanlara nasıl erişilir?
+
+<img src="11.png" width="auto">
+
+```C#
+new MyClass();
+```
+
+## Referanssız nesne üzerindeki elemanlara nasıl erişilir?
+- Sen bir nesneyi referansla işaretlemediğinde HEAP'te kalır. HEAP'te kalması ne kadar doğru hem ben erişemiyorum hem kullanamıyorum hem de HEAP'te nesne lüzumsuz bir şekilde kalıyor. Yani memory'de durduk yere bir alan tahsis ediyor. İşte böyle bir durumda referanssız bir nesnenin memory'de alan tahsis etmesi durumu C# tarafında düşünülmüş demişler ki Eğer ki HEAP'te bulunan nesneler referanssızsa yani herhangi bir işaretleyecisi yoksa Garbage Collector dediğimiz mekanizma sayesinde bu nesneler temizlenecektir demişler.
+
+- HEAP'te referanssız nesneler garbage collector yani çöp toplayıcı mekanizması sayesinde temizlenmekte imha edilmektedirler.
+
+- Eğer ki bir nesne referanssızsa bunu oluşturabilmekteyiz... Lakin bu nesne sistemde/memory'de lüzumsuz yer kaplayacağından dolayı belli bir süre/belirsiz bir süre/ bilinmeyen bir süre sonra Garbage Collector dediğimiz çöp toplayıcısı tarafından temizlenecektir.
+
+- Garbage Collector HEAP'te referanssız olan nesneleri imha etmekten/temizlemekten sorumlu bir yapılanmadır.
+
+- Garbage Collector esasında bizim bellek yöneticimiz kendisi robotize çalışan bir mekanizma belleği düzenliyor. Daha farklı işlemlere de sahiptir.
+
+- Eğer ki elinizde referanssız nesneleriniz varsa ilgili nesneleri siz Garbage Collector'un insafına bırakmış oluyorsunuz. Garbage Collector bilgisayarınızdaki lüzumsuz tahsisleri temizleyecektir.
+
+- Bir nesne referanssızsa nesneyi tanımladıktan sonra bir daha erişemezsiniz. Dolayısıyla referanssız tanımlanmış olan nesneye erişebilmenin tek yolu tanımlama anıdır. Bir kere erişirsin o da son kez selametle demek için. 
+
+<img src="12.png" width="auto">
+
+```C#
+new MyClass().MyProperty = 10;
+```
+
+## Nesne Üzerinden Elemanlara Erişim
+- Nesneye kah referans üzerinden erişmeniz lazım kah nesne oluşturulurken bir şekilde erişmeniz lazım. Bu şekilde nesnenin üzerindeki elemanlara erişebiliyorsunuz. Tabiki de buradaki elemanlar erişilebilir olmalıdır. Dışarı açık olmalı.
+
+<img src="13.png" width="auto">
+
+```C#
+MyClass m2 = new MyClass();
+m2.MyProperty = 10;
+```
+
+## Referans Türüne Göre Nesne Elemanlarına Erişim
+- Her bir referans nesneyi temsil edebilecek imzaya sahiptir.
+
+- Bir nesneyi referans edebilmek için bu nesneyi temsil edebilecek bir fıtratta `class`a ihtiyacım var. Nesnenin türü neyse bizzat o türdeki `class`.
+
+- Referans türüne göre nesne elemanlarına erişim sağlayabiliriz.
+
+<img src="14.png" width="auto">
+
+## Object Initializer İle Nesne Oluşturma Esnasında Propertylere İlk Değer Atama​
+<img src="15.png" width="auto">
+
+- Bir sınıftan nesne oluştururken bu sınıfın property'lerine değer atamak için sınıfın property'lerine referans üzerinden erişip değerlerini atayabilirim.
+
+- Nesne başlatılırken ilk oluşturulurken ilk değerler direkt verilebilir.
+
+- Bu özelliği kullanmazsan eğer içindeki değişkenlerin değerleri default olarak atanacaktır.
+
+- Bu özellik sayesinde nesnenin default/varsayılan başlangıç değerlerini değiştirebilirsiniz.
+
+- İlk nesnenin oluşturulma sürecinde ayağa kaldırılırken değerlerini atamamızı sağlayan bir semantiktir.
+
+- Object initializers'ta sadece field ve property'leri kullanabilirsin.
+
+```C#
+MyClass m3 = new MyClass() 
+{ 
+    MyProperty = 10,
+    MyProperty2 = 20,
+    MyProperty3 = 30 
+};
+```
+
+## C# Examples
+```C#
+namespace oop_sinif;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        MyClass m = new MyClass();
+        m.MyProperty = 10;
+
+        MyClass m2 = null;
+        m2.MyProperty = 20;
+
+        new MyClass().MyProperty = 10;
+
+        MyClass m3 = new MyClass() 
+        { 
+            a = 5,
+            MyProperty = 10,
+            MyProperty2 = 20,
+            MyProperty3 = 30 
+        };
+    }
+}
+
+class MyClass
+{
+    public int a;
+    public int MyProperty { get; set; }
+    public int MyProperty2 { get; set; }
+    public int MyProperty3{ get; set; }
+}
+
+```

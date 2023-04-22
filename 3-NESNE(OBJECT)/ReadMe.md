@@ -343,3 +343,181 @@ class MyClass
 }
 
 ```
+
+***
+# Nesne Tabanlı Programlama #8 - Nesne Kopyalama Davranışları | Shallow Copy | Deep Copy
+<img src="16.png" width="auto">
+
+## Nesne&Değer Kopyalamadan Kastedilen Nedir?
+- Değer türlü değişkenler belleğin STACK kısmında tanımlanan ve değerlerini orada tutan değişkenlerimizdir.
+
+- Nesnelerden farkı sadece değersel olmaları sadece veri olmaları.
+
+- Deep kopyalamada elimizdeki veri 1 iken 2 olur yani elimizdeki veri çoğaltılır.
+
+- Verilerin nesnelerin kopyalanması dediğimiz olay kod yazarken zaten doğal olarak olan ve yönetilmesi gereken bir olaydır.
+
+```C#
+int a  = 5;
+int b = a;
+```
+
+<img src="17.png" width="auto">
+<img src="18.png" width="auto">
+<img src="19.png" width="auto">
+
+## Shallow Copy
+- Var olan bir nesnenin, değerin, referansının kopyalanmasıdır. Shallow copy neticesinde eldeki değer çoğaltılmaz. Sadece birden fazla referansla işaretlenmiş olur.
+
+- Nesne tek lakin işaretleyen referans sayısı birden fazla!
+
+- Nesnelerde bir değerdir ama kompleks bir değerlerdir.
+
+- Bir nesnenin sadece referansı kopyalanıyorsa kendisi çoğaltılmıyorsa bir nesne birden fazla referansla işaretleniyorsa biz buna Shallow Copy diyoruz. Sadece birden fazla referansla işaretlenmesi gerekiyor.
+
+- `MyClass m2 = m1;` 
+  * Bu davranış değer türlü değişkenlerde yapıldığında  bu Deep Copy olur yani değer çoğaltılır. Eğer ki bu davranış referans türlü değişkenlerde oluyorsa burada Shallow Copy yapılır yani ilgili nesne ilgili değer türetilmez/çoğaltılmaz sadece işaretlenir.
+
+- Shallow Copy bir nesnenin birden fazla referansla işaretlenmesidir. Somut bir tane madde var o maddeyi birden fazla referansla işaretlediğin zaman herahngi bir referanstan bir etki gördüğünde diğer referanslara da otomatik bu yansıyacaktır. Dolayısıyla nesne türetilmiyor yüzeysel sığ bir kopyalama yapılıyor. İşte buradaki yüzeysellik sığlık sadece referansların türetilmesi yani birden fazla referansın olması.
+
+- Bir nesne birden fazla referansla işaretleniyorsa burada Shallow Copy söz konusudur. Çünkü Deep/Derin Copy/kopyalamada elindeki veri türetilmeli/çoğaltılmalı birken iki olmalı 2'yken 5 olmalı. Ama Shallow Copy'de nesne bir tane. O bir tane nesneyi birden fazla referans işaretliyor.
+
+<img src="20.png" width="auto">
+
+```C#
+#Örnek 1
+MyClass m1 = new MyClass();
+MyClass m2 = m1;
+MyClass m3 = m2;
+MyClass m4 = new MyClass();
+```
+
+- Değer türlü değişkenlerde kopyalama yapar ilgili değer kopyalanır. Amma velakin referans türlü bir değişkense Shallow Copy yapılır. Yine bu da bir kopyalamadır ama Deep Copy yapılmaz. Deep Copy'de nesne çoğaltılır.
+
+<img src="21.png" width="auto">
+
+```C#
+#Örnek 2
+MyClass m1 = null;
+MyClass m2 = new MyClas
+MyClass m3 = m2;
+m1 = m3;
+```
+
+- Bir referans sade ve sadece tek bir nesneyi işaretleyebilir. Birden fazla nesneyi işaretlemesi mümkün değildir.
+
+- Bir referans önceden işaret etdiyorsa bir nesneyi o referansı başka bir nesneyi işaret etmesini söylediğin anda önceki işaretleme referans kopacaktır.
+
+<img src="22.png" width="auto">
+
+```C#
+#Örnek 3
+MyClass m1 = new MyClass();
+MyClass m2 = new MyClass();
+MyClass m3 = m1;
+m1 = m2;
+m2 = m1;
+m1 = m1;
+```
+
+<img src="23.png" width="auto">
+
+## Deep Copy
+- Var olan bir nesne, deep copy ile kopyalanıyorsa eğer ilgili nesne miktarı çoğalır. Aynı özelliklere ve değerlere sahip olan bellekte farklı bir nesne daha oluşur.
+
+- RAM'de bir nesne eğer ki Deep Copy ile kopyalanıyorsa davranışsal olarak o nesneden bir tane daha olacaktır.
+
+<img src="24.png" width="auto">
+
+## Shallow Copy ve Deep Copy Önemli Not
+|Shallow Copy|Deep Copy|
+|---|---|
+|Referans türlü değişkenlerin/değerlerin default davranışı shallow copy'dir.|Değer türlü değişkenlerde/değerlerde default davranış deep copy'dir.|
+|Sen elinde referans türlü bir değeri başka bir şeye atadığında o kopyalanmaz/türetilmez. Shallow Copy yapılır yani yüzeysel olarak işaretlenir. Yani elindeki değer/nesne bir taneyse bir tane olmaya devam eder çoğaltılmaz.|Yani sen elindeki bir 5 değerini tutan bir değişkeni bir yere gönderdiğinde default olarak ilgili değişken elindeki 5'i göndermez o 5'i kopyasını alıp öyle gönderir. Deep Copy/derin kopyalama işin defaultunda var. Direkt varsayılan olarak fıtrat bu şekilde çalışıyor.|
+|Eğer ki ilgili nesneyi koplayalamak/türetmek/çoğaltmak istiyorsan default davranışın dışındaki diğer davranışı yapmak istiyorsan burada iradeli bir şekilde çalışma yapman lazım. |Shallow Copy ile ilgili bir çalışma yapmak istersen iradeli bir şekilde yapman gerekecek.|
+
+- Bir değer türlü değişkeni/değeri bir yere verirsen(Metot parametresine, Property'e vb.) oraya değişkenin kendisi gitmez kopyası/türetilmiş hali gidecektir.
+
+<img src="25.png" width="auto">
+
+- Derin kopyalamada elimizdeki bir nesne değerleriyle birlikte çoğaltılır. 
+
+- Birebir aynı şekilde çoğaltıldıysa eğer bu derin kopyalamadır.
+
+- Çoğaltılmıştır ama bu nesne birebir ikiz bebek gibi birine iğneyi batırdığında öbürünün canı yanıyor gibi değil. Aynı referansla işaretleniyor gibi düşünmeyin. Bunlar artık farklı nesnelerdir. Doly dediğimiz koyun kopyalandı. derin kopyalama nihayetinde orada yapılan derin kopylaamada var olan koyunun annesinin üzerinden bir kopyalama yapılıyor. Ama ikisi artık farklı koyun. Birini kesip kebap yaptığın zaman öbürü hiç bişey hissetmeyecektir. Dolayısıyla burada da aynı davranış olarak sen derin kopyalam yapmış oluyorsun ama artık kopyalandıktan sonra oluşan değerler birbilerinden bağımsız aynı fıtratta olan bağımsız değerler/nesneler olacaktır.
+
+<img src="26.png" width="auto">
+
+- Bir nesneyi öyle bir kopyalayacağım ki varolan RAM'de 1'ken 2 olacak yani çoğaltılacak yani mükerrer olacak amma velakin ayrı nesneler olacak. Yani referanslar aynı nesneyi işaretlemeyecek derin kopyalama yapacağım. Bunun için nesne kendi içerisinde bir metot/fonksiyon ya da bir property sağlamalı. Yani demeliyim ki kardeşim beni kopyalayabilirsin diyebilmeli. Dolayısıyla `IClonable` dediğimiz klonlama yapabileceğimiz bir arayüzden bizim bunu türetmemiz lazım.
+
+- `MemberwiseClone` bir sınıfın içerisinde o sınıftan üretilmiş olan o anki nesneyi clone'lamamızı sağlayan bir fonkiyondur. Bu clone'lama neticesinde sana `object` olarak sana sonucu döndürecektir. Yani boxing işlemi vardır geriye döndürebilmek için UnBoxing yapılması gerekmektedir.
+
+- Referans türlü değişkenlerde Deep Copy'i syntax üzerinden sağlayamayız. İlla derin kopyalamayı yapabilmek için iradeli/bilinçli şekilde çalışman lazım. Değer türlü değişkenler üzerinde de shallow copy yapabilmek için 
+iradeli/bilinçli bir şekilde çalışmak gerekmektedir.
+
+- Biz bundan sonra çalışmalarımız yaparken shallow copy'mi yapıyoruz deep copy'mi yapıyoruz bunlar önemli. Nesne tabanlı programlamada nesnelerle çalışacaksanız nesneleri yönetebilmeniz lazım. Yönetmek demek irade gerektirir. 
+ 
+- !!!!!!!!!!!!!! İrade de neyi ne şekilde kullandığınızı ve nerede ne şekilde davranış sergilediğinizi bilmenizi gerektirir !!!!!!!!!!!!!!
+
+<img src="27.png" width="auto">
+
+```C#
+public MyClass Clone()
+{
+    return (MyClass)this.MemberwiseClone();
+}
+```
+
+
+
+
+## C# Examples
+```C#
+namespace oop_sinif;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int a = 5;
+        int b = a;
+
+        #region Shallow Copy
+        #region Örnek 1
+        // MyClass m1 = new MyClass();
+        // MyClass m2 = m1;
+        // MyClass m3 = m2;
+        // MyClass m4 = new MyClass();
+        #endregion
+        #region Örnek 2
+        // MyClass m1 = null;
+        // MyClass m2 = new MyClass();
+        // MyClass m3 = m2;
+        // m1 = m3;
+        #endregion
+        #region Örnek 3
+        // MyClass m1 = new MyClass();
+        // MyClass m2 = new MyClass();
+        // MyClass m3 = m1;
+        // m1 = m2;
+        // m2 = m1;
+        // m1 = m1;
+        #endregion
+        #endregion
+        #region Deep Copy
+        MyClass m1 = new MyClass();
+        MyClass m2 = m1;//Shallow copy
+        MyClass m3 = m1.Clone(); //Deep Copy
+        #endregion
+    }
+}
+
+class MyClass
+{
+    public MyClass Clone()
+    {
+        return (MyClass)this.MemberwiseClone();
+    }
+}
+
+```

@@ -1,8 +1,3 @@
----
-modified: 2023-04-19T10:48:29.410Z
-title: "Nesne Tabanlı Programlama #2 - Class Kavramı"
----
-
 # Nesne Tabanlı Programlama #2 - Class Kavramı
 - Nesne fıtrat olarak `class`tan üretilebilir bir yapıdır.
 

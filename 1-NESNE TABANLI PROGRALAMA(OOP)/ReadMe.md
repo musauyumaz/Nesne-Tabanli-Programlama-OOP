@@ -1,8 +1,3 @@
----
-modified: 2023-04-13T08:46:08.311Z
-title: "Nesne Tabanlı Programlama #1 - Nesne Anatomisi - Referans Türlü Değişkenler"
----
-
 ***
 # Nesne Tabanlı Programlama #1 - Nesne Anatomisi - Referans Türlü Değişkenler
 <img src="1.png" width="auto">

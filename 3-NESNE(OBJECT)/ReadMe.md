@@ -1,9 +1,3 @@
----
-modified: 2023-04-20T06:44:52.389Z
-title: "Nesne Tabanlı Programlama #6 - Nesne Kavramı Nedir? Nesne Nasıl
-  Oluşturulur? | new Operatörü"
----
-
 # Nesne Tabanlı Programlama #6 - Nesne Kavramı Nedir? Nesne Nasıl Oluşturulur? | new Operatörü
 <img src="1.png" width="auto">
 

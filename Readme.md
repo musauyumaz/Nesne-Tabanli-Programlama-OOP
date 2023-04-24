@@ -4,3 +4,5 @@
 
 - ## [NESNE TABANLI PROGRALAMA(OOP)](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/1-NESNE%20TABANLI%20PROGRALAMA(OOP)/ReadMe.md)
 - ## [SINIF(CLASS)](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/2-SINIF(CLASS)/ReadMe.md)
+- ## [NESNE(OBJECT)](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/3-NESNE(OBJECT)/ReadMe.md)
+- ## [ENCAPSULATION](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/4-ENCAPSULATION/ReadMe.md)

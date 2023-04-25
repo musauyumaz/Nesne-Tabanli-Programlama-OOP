@@ -1,0 +1,362 @@
+---
+modified: 2023-04-25T13:05:02.248Z
+title: "Nesne Tabanlı Programlama #11 - Özel Sınıf Elemanları - Constructor
+  Metot Nedir?"
+---
+
+# Nesne Tabanlı Programlama #11 - Özel Sınıf Elemanları - Constructor Metot Nedir?
+- Bir sınıf içerisinde farklı memberlar barındıran(field, property, metot, indexer) ve bu memberlar eşliğinde ürettiğimiz nesne üzerindeki değerlerde işlem yapmamızı sağlayan bir tanımlayıcı yapılanmadır. Yani bir nesne modelidir.
+
+- Sınıf üzerinden üretilecek nesnenin üzerinde bu nesnenin üretim esnasındaki yapılacak operasyonları tanımlamamızı sağlayacak aynı şekilde üretilen bu nesnenin imha edilme sürecinde sonkez yapılacak işlemlere dair tanımlamaları yapmamızı sağlayacak olan özel fonksiyonlarımız vardır. İşte bu tarz spesifik durumlara hitap eden o noktalarda işlem yapmamızı sağlayan fonklsiyonlara biz `class`ın özel memberları diyeceğiz.
+
+- Bu memberlar özünde 3 tanedir
+  * Constructor
+  * Static Constructor
+  * Desctructor => Yıkıcı bir etki yaratan yani imha edilirken devreye giren fonksiyon.
+
+- Bu özel memberlar tüm sınıflarda ortak olarak kullanılabilir yapılanmalara sahiptir.
+
+- Özel sınıf memberları birer fonksiyondur.
+
+<img src = "1.png" width="auto">
+
+## Constructor Nedir?
+- Constructor bir nesne üretimi sürecinde ilk tetiklenen metottur.
+
+- Constructer, nesne oluşturma sürecinde tetiklenmek zorundadır!
+
+- Biz bir sınıftan `new` keywordü ile nesne üretiriz.
+
+- C#'ta parantez (`()`) semantik açıdan sadece metotlarda vardır. Siz bir nesne oluştururken aslında bir metot tetikliyorsunuz işte biz bu metoda constructor metot diyoruz.
+
+- Constructor metot adı üstünde yapıcı/inşa edici metot. Nesne ilk ayağa kaldırılırken o nesneye dair ilk konfigürasyonları yaptığımız metottur.
+
+- Senin bir sınıfın var ve bu sınıftan nesne üretiyorsun. Bu sınıftan nesne üretirken bu sınıfın içindeki belirli konfigürasyonlar şu şekilde olsun diyebilmek istiyorsan ve nesne üretilir üretilmez o konfigürasyonlarla sana gelmesini istiyorsan bununla ilgili ekstradan fonksiyon oluşturup nesne ürettikten sonra çağırmaktansa bunu Constructor'da konfigüre edebilirsin. İşte constructor nesne üretim esnasında nesneye dair konfigürasyon yapmanı sağlayan ve nesne üretilirken ilk tetiklenen fonksiyondur. Çünkü sen nesneyi `new` keyword'ü ile üretirken türü bildirdiğinde zaten çoktan bunu tetiklemiş oluyorusun.
+
+- Nesne oluştururken kesinlikle constructor metodu tetiklemek zorundasın.
+
+<img src = "2.png" width="auto">
+
+## Constructor Davranış Modeli
+- Görüldüğü üzere, constructor işlevsel açıdan nesnelerin yaratılma aşamalarında içerisindeki field'lara ilk değerlerini atamakla yükümlü OLABİLMEKTEDİR!
+
+- Constructor, new ile nesne yaratma talebi geldikten ve ilgili nesneye hafızada yer ayrıldıktan sonra tetiklenir.
+
+- Bu nesne oluşturulurken constructor tetikleneceğinden dolayı ilgili nesne içerisindeki field'ların ilk değerleri verilmiş olacaktır.
+
+- Nesne üretirken bu nesnenin field'larının başlangıç değerlerini atamak istiyorsak kullanabiliriz.
+
+- Nesneye dair konfigürasyonlar yapabileceğimiz bir fonksiyondur. İstediğimiz her şeyi yapabiliriz. Sen bu konfigürasyonları yapmayıp başka işlemlerde yapabilirsin. Nihayetinde nesne üretilirken tetikleniyor. Tetiklenirken akıştaki kod neyse onu tetikleyecektir illaki konfigürasyon kodu olmasına gerek yoktur. Ama genellikle nesneye dair konfigürasyonlarımızı yaparız.
+
+- `new MyClass()` Sen `new` dedikten sonra türü verirsin. Türden sonra öncelikle bu nesneye dair hafızada yer ayrılır. Bu ayrım yapıldıktan sonra artık constructor tetiklenir. Yani çoktan nesne aslında fiziken vardır. Varolduktan sonra ilk tetiklenen fonksiyon constructor fonksiyonu olacaktır.
+
+<img src = "3.png" width="auto">
+
+## Constructor Metot Nasıl Oluşturulur?
+- Constructor, özel bir sınıf elemanıdır.
+
+- Özel olsada fıtrat olarak bir metottur.
+
+- Lakin bildiğimiz metot imzalarından bir nebze farka sahiptir.
+
+- Constructor'ların;
+  * Metot adı sınıf adıyla aynı olmalıdır! (Özel sınıf elemanlarının dışında hiçbir member sınıf adıyla aynı olamaz!)
+  * Geri dönüş değeri olmaz/belirtilmez!
+  * Erişim belirleyicisi public olmalıdır! (private olduğudurum ayriyetten incelenecektir)
+
+- Özel sınıf elemanlarının tanımlanması imzası normal bildiğimiz fonksiyonlara nazaran bir tık farklıdır.
+
+- Bir sınıfın içinde herhangi member'ın adı sınıfın adıyla aynı olamaz. Compiler hata verir. Eğer ki bir sınıfın içinde herhangi bir member'ın adı sınıfın adıyla aynıysa belirli kurallar gereği constructor olabilir.
+
+- Geri dönüş değeri olmamalı derken void bile değil hiçbişey tanımlanmamalıdır Orası direkt geçilmelidir.
+
+- Bir sınıfın içinde constructor metot tanımlamak istiyorsanız o sınıfla aynı isimde ve geri dönüş değeri bildirilmemiş olan bir imza tanımlamanız gerekmektedir.
+
+- Constructor metot sınıftan nesne üretilirken ilk tetiklenen metottur.
+
+- Nesne oluşturulurken constructor metodu tetiklemek zorundasınız. Eğer tetiklemezseniz hata alırsınız!!!
+
+- Constructor her daim tetiklenmesi gereken zoraki bir fonksiyondur.
+
+```C#
+new MyClass();
+new MyClass();
+new MyClass();
+new MyClass();
+new MyClass();
+MyClass m = new();
+
+class MyClass
+{
+    public MyClass()
+    {
+        System.Console.WriteLine("Bir adet myclass nesnesi oluşturulmuştur.");
+    }
+    public void X(){}
+}
+```
+
+<img src = "4.png" width="auto">
+
+## Default Constructor
+- Eğer ki bir class'a constructor eklersek default constructor'ı ezmiş oluruz!
+
+- Çünkü her class'ın default bir constructor'ı mevcuttur.
+
+- Her sınıfın içerisinde var olan default constructor vardır. Eğer ki bir sınıf oluşturdun sen herhangi bir constructor koymadın içerisine bil ki her sınıfın içerisinde tanımlamasak dahi default bir constructor mevcuttur.
+
+- Compiler seviyesinde bir nesne oluşturulurken bir constructor tetiklenecektir. Sen constructor oluşturmasan bile.
+
+- Sen default constructorın yerine kendi constructor'ını yazarsan default constructor'ı ezmiş olursun.
+
+- OOP'de `class` yapılanmalarında default constructor compiler tarafından sınıfların içerisine yerleştirilecektir. 
+
+- Ben sınıfın içerisine gelip manuel constructor'ı kendi ellerimle yazarsam mevcudiyetteki default constructor'ı ezmiş olurum. Ezdiğimde de benim yazdığım geçerli olacaktır.
+
+<img src = "5.png" width="auto">
+
+## Parametreli Constructor
+- Constructor'lar parametre alabilmektedir.
+
+- Bir nesneyi üretirken bu nesneye dair ilk konfigürasyonları constructor metodu içerisinde yapabilirim. Aynı şekilde nesneyi üretirken dışarıdan dış dünyadan alınacak parametreleri değerleri de constructor üzerinden verebilirim. Dolayısıyla constructorlar parametre alabilen yapılardır.
+
+```C#
+new MyClass(5);
+new MyClass(10);
+MyClass m = new(15);
+
+class MyClass
+{
+    public MyClass(int a)
+    {
+        System.Console.WriteLine("Bir adet myclass nesnesi oluşturulmuştur. " + a);
+    }
+    public void X(){}
+}
+```
+
+<img src = "6.png" width="auto">
+
+## Constructor Overload
+- Constructor'lar overloading yapılabilir fonksiyonlardır.
+
+- Bir sınıf tanımlamasında birden fazla constructor tanımlayabiliyoruz. Yani constructor dediğimiz yapılanmalar overload olan yapılanmalardır.
+
+- Bir sınıf içerisinde aynı isimde birden fazla member olamaz. Haliyle bir sınıf içerisinde bir isimde bir metot olabilir. Eğer ki bir sınıfın içerisinde aynı isimde birden fazla metot oluşturacaksak bu metotlar overloading yani çoklu yüklenme yapılmış olması lazım. Bir isme çoklu yükleme yapılır. 
+
+- İmza yapılanması aynı sadece imzaların nitelikleri değişiyor. Her metodun ismi aynı olmalı overload olabilmesi için ve parametrelerin sayıları yahut türleri yahut yerleri değişmiş olmalı.
+  * Yani iki parametreli (`int` `string`) (`string` `int` )olabilir bak bu overload'da geçerli olacaktır ama iki parametreli aynı isimde aynı imzada bir metot ikisi de aynı türden parametrelere sahipse burada çakışma olacağından dolayı birini kaldırmanız gerekecektir.
+
+- Overloading yapılabilen özel fonksiyonlardır.
+
+- Genellikle biz parametreyi dış dünyadan alır aldığımız parametre üzerinden nesneyi oluştururken belirli ilk değerleri o dış dünyadan gelen değerler üzerinden veririz. 
+
+- Overloading'te yaparız belirli durumlara göre farklı varyasyonlara göre nesne oluşum sürecini destekleyici nitelikler oluştururuz.
+
+<img src = "7.png" width="auto">
+
+```C#
+class MyClass
+{
+    public MyClass()
+    {
+        
+    }
+    public MyClass(int a)
+    {
+        System.Console.WriteLine("Bir adet myclass nesnesi oluşturulmuştur. " + a);
+    }
+
+    public MyClass(string a)
+    {
+        
+    }
+    public MyClass(string a, int b)
+    {
+        
+    }
+    public void X(){}
+}
+```
+
+## Constructor'ın Erişim Belirleyicisini private Yaparsak Sorunsalı?
+- `public` elemanların dışarıdan erişilmesini sağlar.
+
+- Bir sınıfın nesnesi üzerinden sınıfın constructor'ına erişebiliyorsam constructor'ın `public` olması gerekir. Benzer mantıkla default constructor'da da erişebildiğim için default constructor'da `public`tir.
+
+- Eğer ki biz bir sınıfın constructor'ını `private` yaparsak ilgili sınıfın `private` yapılan o member'ı dışarıdan nesne üzerinden erişelemeyeceğinden dolayı eğer ki bu member constructor'sa eğer yine erişilemeyecek haliyle nesne üretiminde hata alırız.
+
+- Nesne üretilirken kesinlikle bir sınıftan nesne üretim sürecinde constructor metot tetiklenmelidir. Constructor metodu tetikleyemiyorsanız ilgili sınıftan nesne üretemezsiniz. Eğer ki sen bir sınıfın constructor metodunu `private` yaparsan o sınıfın constructor'ına erişilemeyeceği için nesne üretim esnasını da baltalamış olursun haliyle nesne üretimini engellemiş olursun.
+
+- Bir sınıftan nesne üretebilmek için constructor'ı tetiklemen şart bunsuz nesne oluşturamazsın eğer ki constructor'ı `private` yaparsan başka bir overload yoksa eğer ilgili sınıftan nesne üretimini engellemiş olursun.
+
+- Nesne üretimini engellemek singleton design pattern'da işimize yaramaktadır.
+
+- Singleton design pattern'da constructor'lar `private` yapılır. Çünkü bir nesnenin üretimi constructor'ı `private` yapman dışarıdan erişimi engellersin ama sınıfın içerisinde constructor'a erişebilirsin sınıfın içinden ilgili sınıfa dair bir nesne oluşturabiliyorsun.
+
+- Nesne oluşturmayı dışarıdan engelleyip içeriden nesne oluşum sürecini yönetmek istediğimiz durumlarda o sınıfın nesnesini dışarıdan talep edilmesini engellemeniz gerekebilir. Böyle durumlarda bu özelliği kullanabilirsiniz.
+
+- Constructor `private` olabilir ama içeriden erişime izin verir. `private` sadece buradan erişilebilir. Bu odadakiler birbirlerine erişilebilir. `private` olan bu odadaki herhangi bir nesneye bir başka odadaki erişemez.
+
+- Constructor bir sınıfın içerisinde `private` yapılabilir. Yaptığımız zaman ilgili sınıfın nesnesini üretemeyiz çünkü constructor'a ihtiyacımız olacağından dolayı.
+
+```C#
+class MyClass
+{
+    MyClass()
+    {
+        
+    }
+
+    void X()
+    {
+        new MyClass();
+    }
+}
+
+```
+
+<img src = "8.png" width="auto">
+
+## this Keywordüyle Constructor'lar Arası Geçiş
+- Bir sınıfta birden fazla overloading yaparak constructor tanımladığımızda herhangi bir constructor üzerinden sınıftan nesne inşa ederken biz farklı constructor'ların tetiklenmesini isteyebiliriz. İşte bunun için `this` keywordünü kullanabilmekteyiz.
+
+- Bir sınıfın içinde `this` keywordü o sınıfın o anki nesnesini temsil eder.
+
+- `this` keywordü nasıl ki sınıfın o anki nesnesini temsil ediyor aynı şekilde `this` keywordü bir sınıfın nesnesinin içerisindeki birden fazla constructor'lar arasında geçiş yapabilme sorumluluğunu da üstlenebilmektedir. Nihayetinde nesneyi temsil eden nesne içerisindeki constructor'larında aralarında geçiş yapmasını sağlayabilen bir nitelik taşımakta.
+
+- Herhangi bir constructor'ın yanına `this` keywordünü verirsen bu constructor yani o anki constructor'ın dışındaki diğer constructorlara erişmeni sağlayacaktır.
+
+`public MyClass(int a) : this()` bu yapıda ilk önce bu constructor tetiklenmeden önce `this`deki constructor'ı tetikle. İlk önce `this`deki constructor işlenecek sonra bu constructor işlenecektir.
+
+- `this` keywordü constructor'lar arasında atlamayı yani constructor'ın herhangi birinden farklı constructor'ları tetikleyebilmemizi sağlayan bir keyword.
+
+- `this` keywordü ile atlamalar yaparken constructorlar arasında bazen değer vermemiz gerekebiliyor. `this(parametreler)` keywordüne bu syntax'da değer vermek için ya constructor'dan gelen parametreyi kullanabiliyorsunuz ya da manuel değer verebiliyorsunuz. Bunun dışında farklı bir field'ın ya da property'nin değerini burada çağıramazsınız. Erişebildiği değişkenler hangi constructor üzerinde kullanılıyorsa o constructor'un parametrelerindeki değerlerdir. Ayriyetten parametrenin dışında bir değer verebiliyorsunuz.
+
+- Genellikle custom exception sınıfları oluştururken bu tasarımı uygularız.
+
+```C#
+class MyClass
+{
+    public int x;
+    public MyClass()
+    {
+        System.Console.WriteLine("1. Constructor");
+    }
+    public MyClass(int a) : this()
+    {
+        System.Console.WriteLine($"2. Constructor : a = {a}");
+    }
+    public MyClass(int a, int b) : this(a)
+    {
+        System.Console.WriteLine($"2. Constructor : a = {a} |b = {b}");
+    }
+}
+```
+
+<img src = "9.png" width="auto">
+
+## Record'lar da Constructor
+- `record`ın esasında/özünde bir sınıftan farkı yoktur.
+
+
+```C#
+record MyRecord
+{
+    public MyRecord()
+    {
+        
+    }
+    public MyRecord(int a) : this()
+    {
+        
+    }
+}
+```
+
+<img src = "10.png" width="auto">
+
+## C# Examples
+```C#
+namespace oop_sinif;
+class Program
+{
+    static void Main(string[] args)
+    {
+        // new MyClass(5);
+        // new MyClass(10);
+        // new MyClass();
+        // new MyClass();
+        // MyClass m = new(15);
+
+        new MyClass();
+        new MyClass(5);
+
+
+    }
+}
+// class MyClass
+// {
+//     MyClass()
+//     {
+
+//     }
+
+//     void X()
+//     {
+//         new MyClass();
+//     }
+// }
+
+// class MyClass
+// {
+//     public MyClass()
+//     {
+
+//     }
+//     public MyClass(int a)
+//     {
+//         System.Console.WriteLine("Bir adet myclass nesnesi oluşturulmuştur. " + a);
+//     }
+
+//     public MyClass(string a)
+//     {
+
+//     }
+//     public MyClass(string a, int b)
+//     {
+
+//     }
+//     public void X(){}
+// }
+
+class MyClass
+{
+    public int x;
+    public MyClass()
+    {
+        System.Console.WriteLine("1. Constructor");
+    }
+    public MyClass(int a) : this()
+    {
+        System.Console.WriteLine($"2. Constructor : a = {a}");
+    }
+    public MyClass(int a, int b) : this(a)
+    {
+        System.Console.WriteLine($"2. Constructor : a = {a} |b = {b}");
+    }
+}
+
+record MyRecord
+{
+    public MyRecord()
+    {
+        
+    }
+    public MyRecord(int a) : this()
+    {
+        
+    }
+}
+
+```

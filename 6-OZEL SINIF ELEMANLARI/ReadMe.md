@@ -1,5 +1,5 @@
 ---
-modified: 2023-04-25T13:05:02.248Z
+modified: 2023-04-26T08:34:15.396Z
 title: "Nesne Tabanlı Programlama #11 - Özel Sınıf Elemanları - Constructor
   Metot Nedir?"
 ---
@@ -359,4 +359,154 @@ record MyRecord
     }
 }
 
+```
+
+***
+# Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir?
+<img src = "11.png" width="auto">
+
+## Destructor/Finalizer Metot Nedir?
+- Bir class'tan üretilmiş olan nesne imha edilirken otomatik çağrılan metottur.
+
+- C# programlama dilinde Destructor sadece class yapılanmasında kullanılabilir ve bir class sade ve sadece bir adet Destructor içerebilir.
+
+- Constructor yapıcı desctructor yıkıcı. 
+
+- Constructor, bir nesneyi oluştururken `new` keywordü ile compiler'dan sen o nesneyi talep ediyorsan eğer bu nesne oluşturulurken constructor devreye giriyor. constructor dediğimiz fonksiyon nesne oluşturulurken yapılması gereken temel konfigürasyonları nesneyle ilgili temel işlemleri yapan ilk tetiklenen fonksiyondur. Haliyle destructor ise nesne artık işimiz bitti nesneyle ilgili bu değerle ilgili bir işlem yapmama gerek yok dolayısıyla böyle bir durumda nesneyi yok ederiz. Çünkü biz belleğimizde bize lazım olmayan bir değerle işimiz olmaz. 
+
+- Desctructor Nesne imha edilirken yok edilirken son kez nesne adına selametle dememizi sağlayacak olan bir fonksiyondur.
+
+- Nesnedeki en son tetiklenecek fonksiyon destructor'dır.
+
+- Destructor dediğimiz fonksiyon parametre alamaz!
+
+- Sadec `class`ın içerisinde tanımlanan bir fonksiyondur. 
+
+- `class` içerisinde sade ve sadece bir kere tanımlanabilir.
+
+- Parametre alamayan bir fonksiyondur.
+
+<img src = "12.png" width="auto">
+
+## Destructor Davranış Modeli
+- Nesne oluşum sürecinde ilk tetiklenen fonksiyon constructor fonksiyonuydu.
+
+<img src = "13.png" width="auto">
+
+- Nesneyi imha ederken nesnenin son kez hadi hoşçakalın dediği fonksiyona biz destructor diyoruz.
+
+- Destructor yıkıcı metot diye geçer. Nesne imha edilirken/yıkılırken/yok edilirken/silinirken devreye girecektir.
+
+<img src = "14.png" width="auto">
+
+## Peki Bir Nesne Hangi Şartlarda, Kim Tarafından İmha Edilir?
+- Bir nesnenin imha edilmesi için;
+    * İlgili nesne herhangi bir referans tarafından işaretlenmemelidir,
+    * Yahut nesnenin oluşturulduğu ve kullanıldığı scope sona ermiş olmalıdır.
+    * Yani anlaşılan ilgili nesneye bir daha erişilemez hale gelinmelidir. 
+- işte o zaman nesne imha edilir.
+
+- Nesne eğer referanssızsa garbage collector tarafından imha edilir ya da garbage collector dediğimiz meaknizmanın insafına bırakılmıştır. Yani işine geldiği zaman ne zaman ki tetiklenirse o zaman gelecek ilgili nesneyi tak imha edecektir.
+
+- Nesneler herhangi bir referans tarafından işaretlenmezse biz bir daha bu nesneye erişemeyiz. bir nesne salt bir şekilde herhangi bir referans üzerinden erişilmiyecek haldeyse imha edilmeye yüz tutmuştur.
+
+- Şimdi bir nesne oluşturdun oluşturduğun nesnenin kullanıldığı scope artık sona erdi. Sona erdiğine göre sen bu nesneyi bu scope'un dışına taşımadıysan dışarıya bir şekilde vermediysen dışarıdan bir şekilde ulaşılır kılmadıysan artık o nesneye de ihtiyaç olmadığından dolayı bu nesne de imhaya yüz tutacaktır.
+
+- Nesne mimari tarafından imha edilir.
+
+<img src = "15.png" width="auto">
+
+## Garbage Collector
+- Uygulamada lüzumsuz olan nesneleri toplamak için Garbage Collector isimli bir mekanizma devreye girer.
+
+- Esasında Garbage Collector C#'da bellek optimizasyonunu üstlenen bir yapılanmadır.
+
+- C#'da Garbage Collector'ın ne zaman iş göreceği tahmin edilemez. Kafasına göre takılır :)
+
+- Dolayısıyla biz geliştiricilerin bu mekanizmaya müdahale etmesi pek önerilmez!
+
+- RAM'de bir daha kullanılmamak üzere erişilmemek üzere duran nesneleri toplayan yapıya garbage collector denir.
+
+- .NET'te bellek optimizasyonu/yönetimi biz developer'lardan alınmış Garbage Collector'a verilmiştir. Mimari/işletim sistemi bunu otomatik yürütür.
+
+- Garbage Collector denilen mekanizma lüzumsuz olan referanssız olan erişilemeyecek olan nesneleri imha etmekle görevli olan bir mekanizmadır. Bu mekanizma kendi kafasına göre çalışır. Yani ne zaman boştaki/lüzumsuz nesneyi imha edeceğini biz bilemeyiz. Kendisi belki bugün belki yarın belki yarından da yakın bir zaman gelecek ve imha edecek. Dolayısıyla kendi kafasına göre çalışan bir yapılanmadır. Haliyle bu yapılanmaya biz developer'ların müdahalesi çokta tavsiye edilmez. Nİhayetinde bizler buna müdahale ettikçe işine karıştıkça orada büyük bir maliyete sebep olabilmekteyiz. Garbage Collector dediğimiz mekanizma bellek optimizasyonunu kendi planına göre yürüttüğünden dolayı müdahale edebiliyoruz ama bu müdahalede çok fazla önerilmiyor. 
+
+- Garbage Collector dediğimiz bu mekanizma RAM'deki nesneleri işte alacak gelecek yok edecek. Hani Pacman denilen bir oyun vardı. Onun gibi düşünün. HEAP'te varolan nesnelerden boş olan/lüzumsuz olan/referanssız olan nesnelere gidiyor bakıyor diyor ki ulan diyor bu referanssız ben bunu imha edeceğim diyor. Hop yutuyor götürüyor. İşte tam o anda imha edilirken nesne son kez hadi eyvallah diyeceği desctructor fonksiyonunu devreye sokuyor onu tetikliyor.
+
+- Garbage Collector ilgili nesneyi tam imha ederken işte tam o anda destructor fonksiyon devreye girer.
+
+<img src = "16.png" width="auto">
+
+## Destructor Tanımlama Kuralları
+- İşte bu fonksiyon, bu sınıftan üretilen nesne imha edilirken otomatik olarak son kez "selametle" demek için(yani son işlemleri yapabilmek için) tetiklenecek olan fonksiyondur.
+
+- Bir sınıf içerisinde sade ve sadece bir adet destructor tanımlanabilir
+
+- Ve her özel sınıf elemanlarında olduğu gibi destructor'da sınıf ismiyle aynı isimde olan bir fonksiyondur.
+
+- Destructor tanımlayabilmek için `~`(tilde) işareti kullanılır.
+
+<img src = "17.png" width="auto">
+
+## Pratik İnceleme
+- Destructor fonksiyonu nesnenin imhadan bir öncesi yani son nefesini verdiği son duasını ettiği yerdir.
+
+```C#
+using Internal;
+using System;
+namespace oop_sinif;
+class Program
+{
+    static void Main(string[] args)
+    {
+        #region 1. Örnek
+        X();
+        GC.Collect();//Garbage Collector devreye sokulmuş oldu
+        Console.ReadLine();
+        #endregion
+        #region 2. Örnek
+        int sayi = 100;
+        while(sayi >= 1)
+        {
+            new MyClass2(sayi--);
+        }
+        System.Console.WriteLine("********************************");
+        GC.Collect();
+
+        Console.ReadLine();
+        #endregion
+    }
+    static void X()
+    {
+        MyClass m = new MyClass();
+    }
+
+}
+class MyClass
+{
+    public MyClass()
+    {
+        System.Console.WriteLine("Nesne Üretilmiştir");
+    }
+
+    ~MyClass()
+    {
+        System.Console.WriteLine("Nesne imha ediliyor...");
+        System.Console.WriteLine("Nesne son duasını ediyor...");
+        System.Console.WriteLine("Nesne son nefesini veriyor");
+    }
+}
+class MyClass2
+{
+    int no;
+    public MyClass2(int no)
+    {
+        this.no = no;
+        System.Console.WriteLine($"{no}. nesne oluşturulmuştur");
+    }
+    ~MyClass2()
+    {
+        System.Console.WriteLine($"{no}. Nesne imha ediliyor...");
+    }
+}
 ```

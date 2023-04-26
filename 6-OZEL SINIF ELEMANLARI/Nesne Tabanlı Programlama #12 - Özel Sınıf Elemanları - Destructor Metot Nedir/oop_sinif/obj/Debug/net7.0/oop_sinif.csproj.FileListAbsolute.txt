@@ -1,0 +1,15 @@
+D:\Github\Nesne-Tabanli-Programlama-OOP\6-OZEL SINIF ELEMANLARI\Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir\oop_sinif\obj\Debug\net7.0\oop_sinif.csproj.AssemblyReference.cache
+D:\Github\Nesne-Tabanli-Programlama-OOP\6-OZEL SINIF ELEMANLARI\Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir\oop_sinif\obj\Debug\net7.0\oop_sinif.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github\Nesne-Tabanli-Programlama-OOP\6-OZEL SINIF ELEMANLARI\Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir\oop_sinif\obj\Debug\net7.0\oop_sinif.AssemblyInfoInputs.cache
+D:\Github\Nesne-Tabanli-Programlama-OOP\6-OZEL SINIF ELEMANLARI\Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir\oop_sinif\obj\Debug\net7.0\oop_sinif.AssemblyInfo.cs
+D:\Github\Nesne-Tabanli-Programlama-OOP\6-OZEL SINIF ELEMANLARI\Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir\oop_sinif\obj\Debug\net7.0\oop_sinif.csproj.CoreCompileInputs.cache
+D:\Github\Nesne-Tabanli-Programlama-OOP\6-OZEL SINIF ELEMANLARI\Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir\oop_sinif\bin\Debug\net7.0\oop_sinif.exe
+D:\Github\Nesne-Tabanli-Programlama-OOP\6-OZEL SINIF ELEMANLARI\Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir\oop_sinif\bin\Debug\net7.0\oop_sinif.deps.json
+D:\Github\Nesne-Tabanli-Programlama-OOP\6-OZEL SINIF ELEMANLARI\Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir\oop_sinif\bin\Debug\net7.0\oop_sinif.runtimeconfig.json
+D:\Github\Nesne-Tabanli-Programlama-OOP\6-OZEL SINIF ELEMANLARI\Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir\oop_sinif\bin\Debug\net7.0\oop_sinif.dll
+D:\Github\Nesne-Tabanli-Programlama-OOP\6-OZEL SINIF ELEMANLARI\Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir\oop_sinif\bin\Debug\net7.0\oop_sinif.pdb
+D:\Github\Nesne-Tabanli-Programlama-OOP\6-OZEL SINIF ELEMANLARI\Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir\oop_sinif\obj\Debug\net7.0\oop_sinif.dll
+D:\Github\Nesne-Tabanli-Programlama-OOP\6-OZEL SINIF ELEMANLARI\Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir\oop_sinif\obj\Debug\net7.0\refint\oop_sinif.dll
+D:\Github\Nesne-Tabanli-Programlama-OOP\6-OZEL SINIF ELEMANLARI\Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir\oop_sinif\obj\Debug\net7.0\oop_sinif.pdb
+D:\Github\Nesne-Tabanli-Programlama-OOP\6-OZEL SINIF ELEMANLARI\Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir\oop_sinif\obj\Debug\net7.0\oop_sinif.genruntimeconfig.cache
+D:\Github\Nesne-Tabanli-Programlama-OOP\6-OZEL SINIF ELEMANLARI\Nesne Tabanlı Programlama #12 - Özel Sınıf Elemanları - Destructor Metot Nedir\oop_sinif\obj\Debug\net7.0\ref\oop_sinif.dll

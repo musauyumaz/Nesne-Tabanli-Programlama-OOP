@@ -525,6 +525,8 @@ class MyClass2
 
 - Elimizde bir objemiz var. Bu objenin belirli property'leri var. Bu property'leri hızlı bir şekilde tuple nesnesi olarak çıktısını almak istiyorsak bu sınıfın nesnesinin içerisinde ya da bu sınıfın modeli olan `class`ın içerisinde deconstruct dediğimiz fonksiyonun tanımlanmış olması gerekiyor.
 
+- Deconstruct metodu da overload edilebilir.
+
 <img src = "20.png" width="auto">
 <img src = "19.png" width="auto">
 

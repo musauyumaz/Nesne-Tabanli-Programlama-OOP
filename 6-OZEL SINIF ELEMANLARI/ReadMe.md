@@ -1,5 +1,5 @@
 ---
-modified: 2023-04-26T08:34:15.396Z
+modified: 2023-04-27T13:30:44.959Z
 title: "Nesne Tabanlı Programlama #11 - Özel Sınıf Elemanları - Constructor
   Metot Nedir?"
 ---
@@ -507,6 +507,90 @@ class MyClass2
     ~MyClass2()
     {
         System.Console.WriteLine($"{no}. Nesne imha ediliyor...");
+    }
+}
+```
+
+***
+# Nesne Tabanlı Programlama #13 - Özel Sınıf Elemanları - Deconstruct Metot Nedir?
+<img src = "18.png" width="auto">
+
+- Bir sınıf içerisinde "Deconstruct" ismiyle tanımlanan metot, compiler tarafından özel olarak algılanmakta ve sınıfın nesnesi üzerinden geriye hızlıca Tuple bir değer döndürmemizi sağlamaktadır.
+
+- Bir sınıfınız olduğunu tahayyül edin ve bu sınıftan ürettiğiniz bir nesne olduğunu varsayalım. Şimdi bu nesne içerisinde onlarca property'niz olabilir. Bu property'lerden ihtiyacınıza istinaden belli başlı olanları hızlı bir şekilde bir özet bir analiz mahiyetinde elde etmek istiyor olabilirsiniz. İşte bu ihtiyaca istinaden size bu nesnenin istediğiniz property'lerini hızlı bir şekilde belirli bir semantikle ve bunu tuple olarak verebilecek bir özelliktir deconstruct dediğimiz fonksiyon.
+
+- Özel sınıf elemanları dediğimiz yapılanmaların ortak özelliği hepsinin isminin sınıf ismiyle birebir aynı olmasıydı. Bu özel sınıf member'larının arasında bir tane istisna var o da deconstruct fonksiyonu. Deconstruct fonksiyonu sınıf ismiyle aynı ismi barındırmaz/aynı isimde olmaz. Deconstruct fonksiyonunun ismi deconstruct olmalıdır.
+
+- Deconstruct fonksiyonunun özelliği isminden gelir.
+
+- Elimizde bir objemiz var. Bu objenin belirli property'leri var. Bu property'leri hızlı bir şekilde tuple nesnesi olarak çıktısını almak istiyorsak bu sınıfın nesnesinin içerisinde ya da bu sınıfın modeli olan `class`ın içerisinde deconstruct dediğimiz fonksiyonun tanımlanmış olması gerekiyor.
+
+<img src = "20.png" width="auto">
+<img src = "19.png" width="auto">
+
+## Deconstruct Prototipi
+- Geri dönüş tanımlaması vardır. Geri dönüş değeri olmasada `void` ile işaretlenmesi gerekiyor.
+
+- Diğer özel sınıf elemanlarının isimleri sınıfın ismiyle aynı olması gerekiyorken burada ise Deconstruct olarak tanımlanması gerekiyor.
+
+- Bir sınıfın içerisinde deconstruct fonksiyon tanımlamak istiyorsanız;
+    1. Fonksiyonun dışarıdan erişilebilir olması lazım. Yani `public` olmalı. 
+    2. Bu özel bir metottur. Özel metot olduğunu ifade edebilmek içinde compiler tarafından tanımlanan isimle isimlendirilmeli. Haliyle ismi Deconstruct.
+    3. Mantıken geriye değer döndürmesi gerekirken Deconstruct fonksiyonu sayesinde sen geriye değer döndürürken compiler buradan o değeri alacak.
+    4. Tuple oalrak geriye döndürelecek olan değerler Deconstruct fonksiyonunda `out` keywordü tanımlanmış parametreler olmalıdır.
+
+- `out` keywordü metodun içindeki değerleri dışarı taşır.
+
+- Geriye değer döndürmeyecek adı da Deconstruct olacak.
+<img src = "21.png" width="auto">
+
+## Pratikte İnceleme
+```C#
+Person person = new Person
+{
+    Name = "Musa",
+    Age = 24
+};
+var (x, y) = person;//person'ı al x ve y değişkenlerine ayır
+
+class Person
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+    public void Deconstruct(out string name,out int age)
+    {
+        name = Name;
+        age = Age;
+    }
+}
+```
+
+## C# Examples
+```C#
+namespace oop_sinif;
+class Program
+{
+    static void Main(string[] args)
+    {
+        Person person = new Person
+        {
+            Name = "Musa",
+            Age = 24
+        };
+
+        var (x, y) = person;//person'ı al x ve y değişkenlerine ayır
+    }
+}
+class Person
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+    public void Deconstruct(out string name,out int age)
+    {
+        name = Name;
+        age = Age;
     }
 }
 ```

@@ -1,5 +1,5 @@
 ---
-modified: 2023-04-27T13:30:44.959Z
+modified: 2023-04-28T12:28:55.808Z
 title: "Nesne Tabanlı Programlama #11 - Özel Sınıf Elemanları - Constructor
   Metot Nedir?"
 ---
@@ -595,4 +595,192 @@ class Person
         age = Age;
     }
 }
+```
+
+***
+# Nesne Tabanlı Programlama #14 - Özel Sınıf Elemanları - Static Constructor Metot Nedir?
+<img src = "22.png" width="auto">
+
+- Bir sınıftan nesne oluşturulurken ilk tetiklenen fonksiyon constructor fonksiyonudur. 
+
+- Bir sınıftan nesne üretilirken constructor'a nazaran ilk tetiklenen metot static constructor'dır. Ondan sonra normal constructor tetiklenir.
+
+- Bir sınıfta constructor var birde `static` keywordüyle işaretlenmiş bir constructor daha var. Haliyle bir sınıftan nesne üretilirken ilk başta static constructor tetiklenir ardından normal constructor tetiklenir.
+
+- Bir sınıftan nesne üretilirken ilk tetiklenen fonksiyon Static Constructor'dır.... Amma velakin belirli bir duruma istinaden!!!
+
+- Sınıfların içerisinde özel memberlarımız var. Bunlardan kimi constructor kimi destructor kimi static constructor bunlar belirli davranışlara göre belirli durumlarda tetiklenen ve işlemler yapmamızı sağlayan özel metotlar. Bu metotlardan constructor ilgili sınıftan her nesne üretilirken tetiklenen fonksiyon.
+
+- Static constructor ilgili sınıftan ilk nesne üretilirken bir kereye mahsus tetiklenen fonksiyondur.
+
+- Bir sınıftan ilk defa bir nesne üretiliyorsa ilk tetiklenen fonksiyon static constructor ardından constructor'dır. Yok eğer bu sınıftan ilk değilde n. bir nesne üretiliyorsa artık static contructor bir daha tetiklenmez çünkü uygulamada o sınıftan bir yerlerde bir zamanlarda ilk olan bir nesne üretilmiştir o zaman tetiklenmiştir.
+
+- Bir sınıftan ilk nesne üretilirken o sınıftan o uygulamada ilk defa bir yerlerde nesne üretiyorsun işte o sınıfın varsa static constructor'ı orada tetiklenir. Amma velakin ilkinin dışında bambaşka yerlerde nesneler üretiyorsan artık tetiklenmez. Çünkü static constructor ilgili sınıftan ilk nesne üretilirken tetiklenir. 
+
+- Contructor ilk tetiklenen fonksiyondur. İlk sınıfın nesnesi üretilirken birinciliği static constructor'a kaptırır. O da bir constructor'dır ama static yapılanmadır.
+
+- static yapılanmalar uygulama bazlı datalarımızı yerleştirdiğimiz alandır.
+
+- static nesneden bağımsızdır. Bir kereye mahsus tetiklenir. Bir değer koyarsın her yerde aynı değer söz konusudur.
+
+<img src = "23.png" width="auto">
+
+- Constructor `public` olmalıdır. `private` olduğu durumda biz bu constructor'a dışarıdan erişemeyeceğimizden dolayı haliyle nesneyi/nesne oluşumunu engellemiş oluruz. Dolayısıyla `public` olması gerekiyor.
+
+- static constructor oluşturmak istiyorsanız normal constructor'ın başına `static` keywordünü koymanız yeterli. Amma velakin sadece bir erişim belirleyicisi yok.
+
+- static constructor'da geri dönüş değeri ve erişim belirleyicisi bildirilmez! 
+
+- Overloading yapılmaz! Bir sınıfın içinde sade ve sadece bir tane tanımlanabilir. Yani parametre almaz.
+
+- İsmi sınıf ismiyle aynı olacaktır...
+
+<img src = "24.png" width="auto">
+
+- Bir uygulama hepsiburada olabilir uzaya füze gönderiyorsundur haliyle o uygulamanın içerisinde bir sınıfın var farketmiyor bu uygulamanın herhangi bir yerinde bu sınıftan bir nesne üretiyorsun üretirken ilk üretilen nesneyse eğer ilk başta static constructor tetiklenecek ardından normal constructor tetiklenecek. İlkinden sonraki nesnelerde nesne üretimlerinde ise static constructor tetiklenmeyecek sürekli normal constructor tetiklenecek.
+
+- Static constructor'ın tetiklenebilmesi için illa ilk nesne üretimi yapılmasına gerek yoktur. İlgili sınıf içerisinde herhangi bir static yapılanmanında tetiklenmesi static constructor'ın tetiklenmesini sağlayacaktır.
+
+- İlk nesne üretiminde static constructor tetiklenebilir. Bir de ilgili sınıftan herhangi bir static olan member'ı tetikliyorsan eğer yine static constructor bir kereye mahsus tetiklenecektir.
+
+- Bir sınıfta static constructor varsa bu davranışlardan herhangi birinde bir kere tetiklendiyse diğerlerinde bir daha tetiklenmeyecek. 
+
+- Static contructor öyle ya da böyle bir kere tetiklendi mi bir daha tetiklenmez.
+
+```C#
+namespace oop_sinif;
+class Program
+{
+    static void Main(string[] args)
+    {
+        new MyClass();
+        new MyClass();
+    }
+}
+class MyClass
+{
+    public MyClass()
+    {
+        //Bu sınıftan nesne üretilirken ilk tetiklenecek olan metottur.
+        System.Console.WriteLine("MyClass constructor'ı tetiklenmiştir.");
+    }
+    static MyClass()
+    {
+        //Bu sınıftan ilk nesne üretilirken ilk tetiklenecek olan metottur.
+        //Üretilen ilk nesnenin dışında bir daha tetiklenmez!
+        System.Console.WriteLine("MyClass static constructor'ı tetiklenmiştir.");
+        //Static constructor'ın tetiklenebilmesi için illa ilk nesne üretimi yapılmasına gerek yoktur. İlgili sınıf içerisinde herhangi bir static yapılanmanında tetiklenmesi static constructor'ın tetiklenmesini sağlayacaktır.
+    }
+
+}
+```
+
+- Singleton design pattern'ı uygularken static constructor kullanılabiliyor.
+
+- Bir sınıftan uygulama bazında sade ve sadece tek bir nesne oluşturulmasını istiyorsan kullanabileceğin bir design pattern.
+
+- Design pattern dediğimi yapılanmalar OOP nimetlerinden faydalanarak geliştirdiğimiz tekrar eden stratejilerdir. Yani dünyada her yerde standart olan stratejilerdir.
+
+- Bir sınıfın var ve bu uygulamada bu sınıftan sadece bir tane nesne oluşsun iki tane oluşmasın diyipte bu sınıftan sade ve sadece bir tane nesne olacak. Ne zaman ki yeni nesneye ihtiyacım varsa varolanı sana döndürüp onu kullanmanı sağlayacak böyle bir ihtiyacın varsa singleton design pattern senin bu ihtiyacına çözüm getirebiliyor.
+
+- Bir sınıfı singleton yani tekil hale getirmek istiyorsan onun constructor'ını `private` etmen lazım. Nesne üretimini engellemen lazım.
+
+- Bir sınıfın constructor'ını `private` yaparsanız o sınıfın constructor'ına dışarıdan erişemezsiniz içeriden erişebilirsiniz.
+
+- `static` yapılanmalara sınıf ismi üzerinden erişiriz.
+
+- `static` yapılanmaların nesneyle işi yoktur.
+
+- Nesneler hangi yapılanma olursa olsun her daim HEAP'tedir.
+
+- `static` yapılanma normal constructor'dan önce tetiklenen lakin ilk nesne üretilirken ya da herhangi bir `static` yapılanma tetiklenirken tetiklenen bir yapılanmadır. Onun dışında tüm nesne üretimlerinde normal constructor tetiklenecektir.
+
+```C#
+#Singleton Design Pattern
+//Bir sınıftan uygulama bazında sade ve sadece tek bir nesne oluşturulmasını istiyorsan kullanabileceğin bir design pattern.
+class Database
+{
+    Database()
+    {
+
+    }
+    static Database database;
+    public static Database GetInstance
+    {
+        get
+        {
+            return database;
+        }
+    }
+
+    static Database()
+    {
+        database = new Database();
+    }
+}
+```
+
+## C# Examples
+```C#
+namespace oop_sinif;
+class Program
+{
+    static void Main(string[] args)
+    {
+        new MyClass();
+        new MyClass();
+
+        Database database1 = Database.GetInstance;
+        Database database2 = Database.GetInstance;
+        Database database3 = Database.GetInstance;
+
+        database1.ConnectionString = "sfafasfasfsafasfaswf";
+
+        System.Console.WriteLine(database1);
+        System.Console.WriteLine(database2);
+        System.Console.WriteLine(database3);
+    }
+}
+class MyClass
+{
+    public MyClass()
+    {
+        //Bu sınıftan nesne üretilirken ilk tetiklenecek olan metottur.
+        System.Console.WriteLine("MyClass constructor'ı tetiklenmiştir.");
+    }
+    static MyClass()
+    {
+        //Bu sınıftan ilk nesne üretilirken ilk tetiklenecek olan metottur.
+        //Üretilen ilk nesnenin dışında bir daha tetiklenmez!
+        System.Console.WriteLine("MyClass static constructor'ı tetiklenmiştir.");
+        //Static constructor'ın tetiklenebilmesi için illa ilk nesne üretimi yapılmasına gerek yoktur. İlgili sınıf içerisinde herhangi bir static yapılanmanında tetiklenmesi static constructor'ın tetiklenmesini sağlayacaktır.
+    }
+
+}
+
+#region Singleton Design Pattern
+//Bir sınıftan uygulama bazında sade ve sadece tek bir nesne oluşturulmasını istiyorsan kullanabileceğin bir design pattern.
+class Database
+{
+    Database()
+    {
+
+    }
+    public string ConnectionString { get; set; }
+
+    static Database database;
+    public static Database GetInstance
+    {
+        get
+        {
+            return database;
+        }
+    }
+
+    static Database()
+    {
+        database = new Database();
+    }
+}
+#endregion
 ```

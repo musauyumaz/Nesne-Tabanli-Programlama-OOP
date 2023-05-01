@@ -1,3 +1,4 @@
+***
 # Nesne Tabanlı Programlama #6 - Nesne Kavramı Nedir? Nesne Nasıl Oluşturulur? | new Operatörü
 <img src="1.png" width="auto">
 

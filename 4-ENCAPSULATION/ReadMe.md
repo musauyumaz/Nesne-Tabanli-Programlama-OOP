@@ -1,3 +1,4 @@
+***
 # Nesne Tabanlı Programlama #9 - Derinlemesine Encapsulation Nedir?  
 <img src = "1.png" width="auto">
 

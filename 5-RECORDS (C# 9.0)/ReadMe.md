@@ -1,9 +1,3 @@
----
-modified: 2023-04-24T09:12:03.292Z
-title: "Nesne Tabanlı Programlama #10 - Record Nedir? OOP'de ki Yeri Neresidir?
-  (C# 9.0)"
----
-
 ***
 # Nesne Tabanlı Programlama #10 - Record Nedir? OOP'de ki Yeri Neresidir? (C# 9.0)
 - C# 9.0 ile hayatımıza katılan bir yapılanmadır.

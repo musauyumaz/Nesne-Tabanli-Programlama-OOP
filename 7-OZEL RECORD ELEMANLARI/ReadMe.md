@@ -1,3 +1,4 @@
+***
 # Nesne Tabanlı Programlama #15 - Positional Record Nedir?
 ## Positional Record Nedir? Giriş
 <img src="1.png" width="auto">

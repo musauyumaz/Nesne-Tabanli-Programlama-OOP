@@ -1,9 +1,4 @@
----
-modified: 2023-04-28T12:28:55.808Z
-title: "Nesne Tabanlı Programlama #11 - Özel Sınıf Elemanları - Constructor
-  Metot Nedir?"
----
-
+***
 # Nesne Tabanlı Programlama #11 - Özel Sınıf Elemanları - Constructor Metot Nedir?
 - Bir sınıf içerisinde farklı memberlar barındıran(field, property, metot, indexer) ve bu memberlar eşliğinde ürettiğimiz nesne üzerindeki değerlerde işlem yapmamızı sağlayan bir tanımlayıcı yapılanmadır. Yani bir nesne modelidir.
 

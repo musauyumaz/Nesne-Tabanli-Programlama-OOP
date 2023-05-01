@@ -6,3 +6,7 @@
 - ## [SINIF(CLASS)](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/2-SINIF(CLASS)/ReadMe.md)
 - ## [NESNE(OBJECT)](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/3-NESNE(OBJECT)/ReadMe.md)
 - ## [ENCAPSULATION](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/4-ENCAPSULATION/ReadMe.md)
+- ## [RECORDS(C# 9.0)](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/5-RECORDS%20(C%23%209.0)/ReadMe.md)
+- ## [OZEL SINIF ELEMANLARI](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/6-OZEL%20SINIF%20ELEMANLARI/ReadMe.md)
+- ## [OZEL RECORD ELEMANLARI](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/7-OZEL%20RECORD%20ELEMANLARI/ReadMe.md)
+- ## [INHERITANCE](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/8-INHERITANCE/ReadMe.md)

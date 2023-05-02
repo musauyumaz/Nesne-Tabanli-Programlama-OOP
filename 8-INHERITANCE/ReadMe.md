@@ -1,6 +1,11 @@
+---
+modified: 2023-05-02T18:20:23.185Z
+title: "Nesne Tabanlı Programlama #16 - Inheritance(Kalıtım) Nedir? 1. Bölüm"
+---
+
 ***
 # Nesne Tabanlı Programlama #16 - Inheritance(Kalıtım) Nedir? 1. Bölüm
-<img src="1.png">
+<img src="1.png" width = "auto">
 
 ## Bir Programcı Açısından Kalıtım Nedir?
 - Yazılımda bir kavramı öğreneceksen öğrenmen gerektiği için öğreniyorsun. Artistlik olsun diye bir kavram öğrenilmiyor yazılımda.
@@ -39,7 +44,7 @@
 
 - İleride design pattern'lardan bahsedeceğiz. Birçok design pattern OOP'deki kalıtım üzerine kurulu.
 
-<img src="2.png">
+<img src="2.png" width = "auto">
 
 ## Her Sınıfı Kalıtımsal Operasyona Tabi Tutmalı mıyım? Sorunsalı...
 - Sen bütün sınıflarını kalıtımsal operasyonlarda kullanmak zorunda değilsin. Kullanabileceklerin varsa da bunları kalıtımda kullanacaksın. Yani elindeki bütün sınıfları bir şeyden kalıt diye bir prensip yok. Kalıtım denilen olay lazımsa kullanılır. Herşeyi de kalıtacağım diye bir derdin olmasın.
@@ -63,7 +68,7 @@
 
 - Genellenemeyen her cümlesiyle devam edilemeyen özellikler üst sınıfa yani bu kalıtım veren sınıfa koyulmaz.
 
-<img src="3.png">
+<img src="3.png" width = "auto">
 
 ## Kalıtımın Kullanılmadığı Durumu İnceleyelim
 - Elimde 3 tane sınıf var 3'üde aynı içeriğe sahip ya ben amele miyim yazılımcı mı? Yazdığım kod ne kadar kaliteli diye kendine sormalısın!
@@ -72,8 +77,8 @@
 
 - Sen de şüpheleneceksin kodlarına baktın sınıfların aynı olgularsa yani bütün nesneler aynı olguda olduğu sürece aynı olguda olan sınıfların tasarımına baktığında tekrar eden yapılanmalar varsa diyeceksin ki burada bir yanlışlık olabilir ben burada hepsinde tekrar eden yapılanmaları bir farklı sınıfa alıp oradan kalıtım alabilirim diyeceksin.
 
-<img src="4.png">
-<img src="5.png">
+<img src="4.png" width = "auto">
+<img src="5.png" width = "auto">
 
 ## Kalıtımın Kullanıldığı Durumu İnceleyelim
 - Kalıtım lalettayin bir şekilde tasarlanmamalıdır. Ortak olguda olan nesneleri temsil edecek olan bir üst ve daha evrensel nitelikte olgu olmalıdır. Opel, Mercedes ve Fiat ortak olgudur. Yani üçüde bir arabadır. Haliyle bunların daha evrensel üst niteliği Araba olarak nitelendirilebilir.
@@ -86,8 +91,8 @@
 
 - Polimorfizm'de kalıtımın sonucudur. Dolayısıyla kalıtım mihenk taşıdır.
 
-<img src="6.png">
-<img src="7.png">
+<img src="6.png" width = "auto">
+<img src="7.png" width = "auto">
 
 - OOP'de kalıtım özünde nesnelerin birbirlerinden türemesini sağlayan bir özelliktir.
 
@@ -98,8 +103,8 @@
 
 - Bu eğitim sürecinde OOP'de ki kalıtımı ve kalıtımın getirisi olan tüm stratejik yapılanmaları tam teferruatlı ele alacağız!
 
-<img src="8.png">
-<img src="9.png">
+<img src="8.png" width = "auto">
+<img src="9.png" width = "auto">
 
 ## C# Programlama Dilinde Hangi Yapılar Kalıtım Alabilirler?
 - C# programlama dilinde kalıtım sınıflara özel bir niteliktir.
@@ -116,7 +121,7 @@
 
 - Bir `record`a her ne kadar fıtrat olarak `class`ta olsa gidip bir `class` üzerinden kalıtım veremiyorsun. Aynı şekilde bir `class`a `record` üzerinden de kalıtım veremiyorsun.
 
-<img src="10.png">
+<img src="10.png" width = "auto">
 
 ## C#'ta Kalıtım Nasıl Alınır? : Operatörü
 - C#'ta iki sınıf arasında kalıtımsal ilişki kurabilmek için `:` operatörü kullanılmaktadır.
@@ -125,8 +130,8 @@
 
 - Bir sınıf başka bir sınıftan kalıtım aldığında erişime açık/kalıtıma müsait olan bütün memberlar sınıfa aktarılacaktır. Şöyle bişey beklemeyelim :) Hocam ben bu kodu yazdım ama memberlar gelmedi arkadaş öyle kodun içerisinde selena gibi gelmesini bekleme tabiki de! Bu yapmış olduğun işlem neticesinde artık bu sınıftan bir nesne oluşturduğunda direkt ilgili aktarılan miras alınan memberlara erişebileceksin. Yani bunların direkt burada fiziksel olarak görünmesini bekleme. Bu compiler seviyesinde yani arkada dijital seviyede oluyor öyle düşün.
 
-<img src="11.png">
-<img src="12.png">
+<img src="11.png" width = "auto">
+<img src="12.png" width = "auto">
 
 - Kalıtım operatörünün `:` solunda bir sınıf sağında ise başka bir sınıf vardır.
 
@@ -136,12 +141,12 @@
 
 - Eriim belirleyicileri bir yandan da kalıtımsal durumlarda memberların davranışlarını sergilememizi sağlar.
  
-<img src="13.png">
+<img src="13.png" width = "auto">
 
 - Kalıtım, operasyonel olarak gerçekleştirildikten sonra compiler seviyesinde member aktarımı sağlanır!
 
-<img src="14.png">
-<img src="15.png">
+<img src="14.png" width = "auto">
+<img src="15.png" width = "auto">
 
 ## Pratik Yapalım
 - Eğer kalıtım yoksa aynı olgudaki sınıflar tekrar ederler ve bizde burada kalıtım ihtiyacı olduğunu anlarız.
@@ -243,4 +248,237 @@ class Yazilimci : Personel
 
 class Mudur : Personel { }
 #endregion
+```
+
+***
+# Nesne Tabanlı Programlama #17 - Inheritance(Kalıtım) Nedir? 2. Bölüm
+<img src="16.png" width = "auto">
+
+## Base Class ve Derived Class Nedir?
+- Kalıtım veren sınıfa Base / Parent Class denir.
+
+- Kalıtım alan sınıfa Derived / Child Class Denir.
+
+- Kalıtımsal ilişkide olan iki sınıf arasında kalıtım veren sınıfa base/parent class, kalıtım alan sınıfa ise derived/child class denmektedir.
+
+<img src="17.png" width = "auto">
+
+## Base Class ve Derived Class Kritik
+<img src="18.png" width = "auto">
+
+- Unutma! Bir sınfın sade ve sadece tek bir Base Class'ı olabilir!
+
+- Yani bir sınıfın Base Class'ı direkt türediği sınıftır.
+
+- Lakin atalarındaki tüm sınıflar Base Class'ı değildir!
+
+- Direkt türediği sınıftır base class'ı ataları değildir. Yani benim base class'ım babamdır dedem değildir. Dedem atalarımdan birisidir amma velakin base class'ım değildir.
+
+- Base class dediğimiz kavram direkt birebir kalıtımı aldığın sınıftır.
+
+- Bir `class` ın birden fazla derived class'ı olabilir. 
+
+- Benim bir tane babam vardır. Ama babamın birden fazla oğlu ya da kızı olabilir. Yani olay gerçek hayattaki kalıtımsal mantığın ta kendisidir. Sadece sen burada base class dediğimiz kavramı sadece tek bir kişiye veriyorsun. Tüm atalara değil sadece babaya veriyorsun. Sadece babamızdır bizim base class'ımız atalarımız değil.
+
+- Bir sınıfın birden fazla derived class'ı olabilir ama bir sınıfın sadece bir tane base class'ı olur.
+
+<img src="19.png" width = "auto">
+
+- Bir `class` hem base class hemde derived class olabilir.
+
+<img src="20.png" width = "auto">
+
+## Kalıtımın Altın Kuralı!
+- Bir class'ın sade ve sadece bir Base Class'ı olur dedik. 
+
+- Bunun nedeni, C# programlama dilinde bir class'ın sade ve sadece tek bir class'tan türetilmesine izin verilmektedir! Aynı anda birden fazla class'tan türeme işlemi gerçekleştirilemez!
+
+- Bir sınıf fiziksel olarak sade ve sadece tek bir sınıftan türeyebilir. Aynı anda birden fazla sınıftan türeyemez. Dikey boyutta türetebilirsin sen babandan alırsın baban büyük babandan alır ama yatay boyutta türetemezsin bir sınıf hem anneden hem babadan bir kalıtım alamaz. Belirli problemlerden dolayı engellenmiştir.
+
+- Bir sınıfın yatay düzlemde birden fazla sınıftan kalıtım alabilmesine çoklu kalıtım denir. İşte bu çoklu kalıtım yaşanan birçok problemden dolayı engellenmiştir. Dolayısıyla aynı anda birden fazla `class`tan türeme işlemi C# programlama dilinde gerçekleştirilemez! Çoklu kalıtıma izin veren dillerde vardır.
+
+- Eğer ki mevzu bahis sınıfsa bir sınıf sade ve sadece tek bir tane sınıftan kalıtım alabilir.
+
+<img src="21.png">
+
+```C#
+public class BuyukBaba
+{
+    
+}
+public class Baba : BuyukBaba
+{
+    
+}
+public class Anne : Baba
+{
+    
+}
+public class Ogul : Anne
+{
+    
+}
+```
+
+## Kalıtımda Nesne Üretim Sırası
+- Bir sınıftan nesne üretimi yapılırken kalıtım aldığı üst sınıflar varsa eğer önce o sınıflardan SIRASIYLA nesne üretilir.
+
+- Yazılım sen nesne üretmesende compiler seviyesinde ilgili kalıtım veren sınıftan bir nesne üretilecektir ve burada öncelikle o sınıftan nesne üretilecek ve daha sonra kalıtım alan senin sınıfından nesne üretilecek. Dolayısıyla buradaki sıralama önemli ve buradaki sıralama hiyerarşik bir şekilde olacak.
+
+- Kalıtımsal bir ilişkin olduğu durumda sen derived class'tan nesne üretirsen bil ki RAM'in HEAP bölgesinde kaç tane hiyerarşik ata varsa o kadar nesne üretilmiş olacaktır.
+
+- Base class'ta bulunan memberlar derived class'a aktarılır. Base class'tan gelen member'ı derived class'ta kullanırken aslında arka planda base class'ın nesnesi üzerindeki member'ı kullanmaktayız. Derived class'ın nesnesine direkt bir aktarım yoktur. 
+
+<img src="22.png" width = "auto">
+
+- Sen bir tane nesne ürettiğini zannedersin halbuki arkada kaç tane kalıtımsal ata varsa her birinden nesne üretecektir.
+
+- Bir sınıftan aktarılmış olan herhangi bir member'ı sen o sınıfta üst sınıflardan gelen bir member'ı kullanmak istiyorsan özünde arkada oluşturulan nesne üzerinden tetikleme yapacaktır.
+
+<img src="23.png" width = "auto">
+
+- Yani buradan anlaşılıyor ki, bir sınıftan nesne üretilirken siz 1 adet nesne ürettiğinizi düşünsenizde kalıtımsal açıdan birden fazla nesne üretimi gerçekleştirilebilmektedir ve bu senin benim iradem de değil compiler bunu yapacaktır bu böyle çalışmaktadır.
+
+<img src="24.png" width = "auto">
+
+- `nameof` içerisine verilen sınıfın ismini metinsel olarak ilgili alana yazdıran/gönderen/aktaran bir keyword. 
+
+- Siz belirli sınıfların isimlerini kod içerisinde kullanacaksanız metinsel olarak o sınıfın ismini kodun içerisine yazmak risk teşkil edecektir. Nihayetinde metinsel karakterlerde hata yapma ihtimalin var yeri gelecek sınıfı ismi değişecek yazmış olduğun metinsel alanda o sınıfın ismi öyle kalacak sana derleyici hata vermeyecek vs. Dolayısıyla `nameof` ile senin o ismi alıp yazdırman hani bir programcılık açısından daha doğru olacak.
+
+- Ne olursa olsun compiler'da oluştursa bende oluştursam bir nesne oluşturulurken kim oluşturursa oluştursun kesinlikle constructor metot tetiklenecektir.
+
+- Kalıtımda nesne oluşturma sırası atalardan başlar takır takır takır... ilgili talep ettiğiniz nesneden oluşturmaya kadar gelecektir. 
+
+- Kalıtımı kullandığın operasyonlarda bil ki base class'tan ve atalardan da nesneler oluşturulacak ona göre biz yeri gelecek davranışlarımızı belirliyoruz ona göre yeri gelecek design patternlarda vs. buradaki davranışı kullanıyoruz.
+
+```C#
+public class A
+{
+    public A()
+    {
+        System.Console.WriteLine($"{nameof(A)}");
+    }
+}
+public class B : A
+{
+    public B()
+    {
+        System.Console.WriteLine($"{nameof(B)}");
+    }
+}
+public class C : B
+{
+    public C()
+    {
+        System.Console.WriteLine($"{nameof(C)}");
+    }
+}
+public class D : C
+{
+    public D()
+    {
+        System.Console.WriteLine($"{nameof(D)}");
+    }
+}
+```
+
+## Bir Sınıftan Base Class Constructor'ına Ulaşım
+- Madem ki, herhangi bir sınıftan nesne üretimi gerçekleştirilirken öncelikle base class'ından nesne üretiliyor, bu demektir ki önce base class'ın constructor'ı tetikleniyor.
+
+- Haliyle bizler nesne üretimi esnasında base class'ta üretilecek olan nesnenin istediğimiz constructor'larını tetikleyebilmeli yahut varsa parametre bu değerleri verebilmeliyiz.
+
+- İşte bunun için `base` Keyword'ü nü kullanmaktayız.
+
+- `base` keyword'ü base class'a erişip base'le ilgili işlemler yapmanı sağlıyor.
+
+- `base` keyword'ünün iki tane amacı vardır;
+    1. base class'ın constructorlarına erişebilmemizi sağlayan bir niteliğidir.
+    
+    2. base class'ın o anki nesnesine erişip üzerindeki erişilebilir memberlara erişmemizi ve kullanmamızı sağlar. `this` keywordüne benzemektedir.
+
+- Kalıtımsal bir ilişki var derived class'tan önce base class'ın nesnesi üretilecek ama ya base class'ın birden fazla constructor'ı varsa şimdi derived class'tan nesne üretilirken base class'taki hangi constructor'ın tetiklenmesini istiyorsan onu derived class üzerinden belirleyebilmeliyim. İşte bunu yapmanı sağlayacak olan keyword `base` keywordüdür.
+
+<img src="25.png" width = "auto">
+
+- Bir sınıfta sen tanımlamasan default constructor vardır.
+
+- Eğer ki base class'ın constructor'ı parametre alıyorsa derived class bu parametreyi base class'a yollamalıdır. Yoksa hata alınır. Çünkü derived class base class'ın parametresine ne verecek bilemez.
+
+- Eğer ki base class'ın constructor'ı sadece parametre alan constructor ise derived class'larda o constructor'a bir değer GÖNDERMEK ZORUNDAYIZ. Bunuda `base` keywordüyle saplayabiliriz...
+
+- Madem ki base class'tan bir nesne üretilecek onun constructor'ının parametresi var ne vereceğini compiler bilemez onun için seni/developer'ı zorlar. Der ki derived class'tan birgün nesne oluşturulursa bu derived class'ın constructor'ından base class'ın constructor'ına bir değer gönder ki ben onu baz alayım.
+
+<img src="26.png" width = "auto">
+
+- Eğer ki base class'ta boş parametreli bir constructor varsa derived class'ta `base` ile bir bildirimde bulunmak zorunda değiliz.... Niçin? Çünkü varsayılan olarak kalıtımsal durumda base class'taki boş parametreli constructor tetiklenir
+
+<img src="27.png" width = "auto">
+
+- Base class'ımızda birden fazla constructor olduğu durumda derived class'ta `base` keywordüyle istediğimiz constructor'ını tetikleyebiliriz.
+
+- Bir class'ın constructor'ının yanında `: base(...)` keywordünü kullanırsak eğer o class'ın base class'ının tüm constructor'larını bize getirecektir. Haliyle ilgili sınıftan bir nesne üretilirken base class'tan nesne üretimi esnasında hangi constructor'ın tetikleneceğini bu şekilde belirleyebiliriz...
+
+<img src="28.png" width = "auto">
+
+```C#
+public class MyClass
+{
+    public MyClass(int a)
+    {
+
+    }
+    public MyClass(string a)
+    {
+
+    }
+    public MyClass(int a, string b)
+    {
+
+    }
+    public MyClass()
+    {
+
+    }
+}
+public class MyClass2 : MyClass
+{
+    public MyClass2() : base(5, "afsafsafafasd")
+    {
+
+    }
+    public MyClass2(int a) : base(a)
+    {
+
+    }
+}
+```
+
+## base Keyword vs this Keyword
+- `this`, bir sınıftaki constructor'lar arasında geçiş yapmamızı sağlar.
+
+- `base`, bir sınıfın base class'ının constructor'larından hangisinin tetikleneceğini belirlememizi ve varsa parametrelerinin değerlerinin derived class'tan verilmesini sağlar.
+
+- `this`i kullanıyorsam buradaki constructor'lar `base`i kullanıyorsam bir üst sınıftaki/base sınıftaki constructorlara erişebiliyorum.
+
+<img src="29.png" width = "auto">
+
+- Ayrıca nasıl ki this, ilgili sınıfta o anki nesnenin memberlarına erişebilmemizi sağlıyor, aynı şekilde base'de base class'da ki memberlara erişebilmemizi sağlamaktadır.
+
+- Base Class'da erişilebilir olmayan member'lar base keywordüyle erişilemez!
+
+- Base class'ta erişilebilir olmayanlar kalıtımsal olarak aktarılmaz. `private` olan bir member base class'tan derived class'a aktarılmayacağından dolayı `base` keywordü üzerinden erişilmeyecektir.
+
+<img src="30.png" width = "auto">
+
+- Eğer ki derived class'tan direkt olarak/hiçbir keyword kullanmadan base class'taki bir member'a erişirsem compiler seviyesinde `base` keywordü eklenecektir.
+
+- Base class'tan aktarılan nesneler o anki derived class'ta `this` keywordü üzerinden de erişilebilir.
+
+- `this` keywordü ilgili sınıfın o anki nesnesi üzerindeki erişilebilir tüm memberları getirecektir. Aynı zamanda kalıtımsal olarak aktarılan memberlara da `this` keywordü üzerinden erişilebilir. 
+
+- `base` keywordü ise sade ve sadece base class'ın memberlarını getirecektir.
+
+## C# Examples
+```C#
+
 ```

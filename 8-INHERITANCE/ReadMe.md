@@ -1,5 +1,5 @@
 ---
-modified: 2023-05-03T10:43:48.840Z
+modified: 2023-05-03T13:46:45.778Z
 title: "Nesne Tabanlı Programlama #16 - Inheritance(Kalıtım) Nedir? 1. Bölüm"
 ---
 
@@ -577,6 +577,161 @@ public class B : A
     public void X()
     {
         MyProperty = 123;
+    }
+}
+```
+
+***
+# Nesne Tabanlı Programlama #18 - Inheritance(Kalıtım) Nedir? 3. Bölüm
+<img src="31.png" width = "auto">
+
+## Bir Nesnedeki ToString, Equals, GetHashCode ve GetType Metotları Nereden Gelmektedir?
+- Bu metotlar kalıtımsal bir işlem neticesinde gelmektedir.
+
+<img src="32.png" width = "auto">
+
+## Nesnelerin Atası/Ademi Object Sınıfı/Türü
+- C# programlama dilinde tüm sınıflar istisnasız Object sınıfından türemektedir.
+
+- C# programlama dilinde tüm sınıfların atası olan bir sınıf vardır. Biz bu sınıfa direkt Object türü demekteyiz.
+
+- Şimdilik istisnasız çünkü biz ileride ileri düzey programlamada `delegate` dediğimiz yapılanmaları göreceğiz. `delegate`'lerde özünde bir nesnedir/objedir. Amma velakin onlar `Object` sınıfından türemezler. 
+
+- Sen bir sınıfı oluşturduğunda bir sınıftan türese de türemese de bu sınıf `Object` sınıfından türeyecektir. Bir başka sınıftan türüyorsa o sınıftan türemiş olacak o sınıfta `Object`ten türeyeceği için dolaylı yoldan `Object`ten türemiş olacaktır.
+
+- Sen bir sınıf oluşturduğunda compiler seviyesinde o sınıf otomatik olarak default olarak `Object` türetilecektir. Haliyle `Object` sınıfının içerisindeki kalıtımsal olarak aktarılabilecek bazı metotlar bazı memberlar ilgili sınıfa aktarılmış olacaktır.
+
+- C# programlama dilinde herhangi bir sınıf oluşturdun oluşturur oluşturmaz bu sınıfın `Object`ten türediğini biliyorsun.
+
+- `Object` sınıfı C# programlama dilinde atadır/ademdir.
+
+- `object` herşeyi kapsayan bütün değerleri kapsayabilen bir özellik olmasının altında yatan sebep tüm değerlerin `Object`ten türemesidir.
+
+- `Object`ten bütün nesnelerin türemesinden dolayı `object` bütün değerleri karşılayabilimektedir. Haliyle bütün değerleri karşılayabildiğinden dolayı temel C# programlamadaki boxing unboxing kavramına değindiğimiz `object` türü işte buradaki tüm değerlerin bundan türemesinden gelmektedir. 
+
+- Bir sınıf kalıtım almasa da default olarak `Object` sınıfından türetilir.
+
+- Eğer ki tanımlanan sınıf herhangi bir kalıtım almıyorsa default olarak `Object` sınıfından türetilecektir.
+
+- Yok eğer herhangi bir sınıftan kalıtım alıyorsa, bir sınıfın aynı anda birden fazla sınıftan kalıtım alamama prensibinden yola çıkarak biryandan da Object sınıfından türemeyecek sadece kalıtım altığı sınıftan türeyecektir.
+
+- Tabi burada kalıtım veren sınıf herhangi bir sınıftan türemiyorsa eğer enn nihayetinde Object'ten türeyeceği için dolaylı yoldan Insan sınıfı da Object'ten kalıtım almış olacaktır.
+
+- Bir sınıf birden fazla sınıftan aynı anda türetilemeyeceğinden dolayı herhangi bir sınıftan türediği anda `Object`ten türemeyecektir. Ama o türediği sınıf yine `Object`'ten türeyeceği için dolaylı yoldan yine `Object`ten türemiş olacaktır. Yani `Object` atası olacaktır.
+
+- Elinde hiyerarşik bir şekilde birbirlerinden türeyen sınıfların olduğunu düşün işte bu sınıflardan en baştaki ata hangisi ise bil ki o da `Object`ten türeyecektir. Haliyle bu hiyerarşik kalıtımsal yapılanmadaki bütün sınıflar dolaylı yoldan bir `Object` sınıfı olmuş olacaktır.
+
+<img src="33.png" width = "auto">
+<img src="34.png" width = "auto">
+<img src="35.png" width = "auto">
+
+## Object Sınıfı Memberları
+<img src="36.png" width = "auto">
+
+- Bir sınıftan bir nesne üretirsen bil ki ilk baş `Object`ten bir nesne üretecektir.
+
+## İsim Saklama(Name Hiding) Sorunsalı
+- Kalıtım durumlarında atalardakiherhangi bir member ile aynı isimde member'a sahip olan nesneler olabilmektedir.
+
+- Hem base class'ta hem de derived class'ta aynı isimde member mevcutsa biz buradaki member'ın hangisinden geldiğini bilemeyiz işte bilememe durumuna name hiding(isim saklama) diyoruz.
+
+- Ata sınıflardaki herhangi bir memberla bir sınıftaki bir member aynı isme sahipse biz bu duruma name hiding diyoruz.
+
+- Atalardan gelecek olan member bu şekilde gizlemiş oluyorsun. Name hiding yapmış oluyorsun isim saklanmış oluyor.
+
+<img src="37.png" width = "auto">
+
+- Bu durumda derleyici bir hata vermez!
+
+- Fakat bir warning/uyarı verecektir.
+
+<img src="38.png" width = "auto">
+<img src="39.png" width = "auto">
+<img src="40.png" width = "auto">
+
+## Name Hiding Durumlarında new Operatörünün Kullanımı
+- Eskiden name hiding söz konusu olsaydı derived class'larda/torunlarda bu member'ı `new` keywordüyle işaretlememiz gerekiyordu. Eskiden derleyiciye bildirmemiz gerekecekti. Atalardan gelen bu ismi ben torunlarda name hiding olacak şekilde tekrardan eziyorum bunu bil ve ben bunu bilinçli bir şekilde yapıyorum demenin yoluydu `new` keywordü. Günümüzde biz bunu yapmak zorunda değiliz.
+
+- Atalardaki varolan memberla aynı isimde torunlarda bir member görüyorsanız biz buna direkt name hiding diyoruz.
+
+<img src="41.png" width = "auto">
+<img src="42.png" width = "auto">
+
+```C#
+public class A
+{
+    public void X()
+    {
+
+    }
+}
+public class B : A
+{
+
+}
+public class C : B
+{
+
+}
+public class D : C
+{
+    public new int X()
+    {
+        return 0;
+    }
+}
+```
+
+## Record'lar da Kalıtım?
+- Record'lar sade ve sadece Record'lar dan kalıtım alabilmektedirler.
+
+- Class'lar dan kalıtım alamazlar yahut veremezler!
+
+- Kalıtımın tüm temel kuralları record'lar için geçerlidir;
+    * Bir record aynı anda birden fazla record'dan kalıtım alamaz!
+    * Record'lar da temelde class oldukları için üretilir üretilmez otomatik olarak `Object`'ten türerler.
+    * `base` ve `this` keywordleri aynı amaçla kullanılabilmektedir.
+    * Name Hiding söz konusu olabilmektedir.
+    * Ve aklıma gelmeyen diğer tüm durumlar da record'lar için geçerlidir.
+
+<img src="43.png" width = "auto">
+
+## C# Examples
+```C#
+using System;
+namespace inheritance;
+class Program
+{
+    static void Main(string[] args)
+    {
+        MyClass m = new MyClass();
+
+    }
+}
+public class MyClass
+{
+
+}
+public class A
+{
+    public void X()
+    {
+
+    }
+}
+public class B : A
+{
+
+}
+public class C : B
+{
+
+}
+public class D : C
+{
+    public new int X()
+    {
+        return 0;
     }
 }
 ```

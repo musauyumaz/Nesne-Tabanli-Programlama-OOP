@@ -10,3 +10,4 @@
 - ## [OZEL SINIF ELEMANLARI](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/6-OZEL%20SINIF%20ELEMANLARI/ReadMe.md)
 - ## [OZEL RECORD ELEMANLARI](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/7-OZEL%20RECORD%20ELEMANLARI/ReadMe.md)
 - ## [INHERITANCE](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/8-INHERITANCE/ReadMe.md)
+- ## [SANAL YAPILAR](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/9-SANAL%20YAPILAR/ReadMe.md)

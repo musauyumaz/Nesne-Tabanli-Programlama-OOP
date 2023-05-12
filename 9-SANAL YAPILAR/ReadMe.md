@@ -1,8 +1,3 @@
----
-modified: 2023-05-06T09:39:58.626Z
-title: "Nesne Tabanlı Programlama #19 - Sanal Yapılar | virtual - override"
----
-
 ***
 # Nesne Tabanlı Programlama #19 - Sanal Yapılar | virtual - override
 <img src="1.png" width="auto">

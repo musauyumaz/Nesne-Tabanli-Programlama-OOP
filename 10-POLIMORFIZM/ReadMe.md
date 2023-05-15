@@ -1,5 +1,5 @@
 ---
-modified: 2023-05-12T06:39:56.396Z
+modified: 2023-05-15T09:26:14.071Z
 title: "Nesne Tabanlı Programlama #20 - Polimorfizm Nedir? Derinlemesine
   İnceleme - 1. Bölüm"
 ---
@@ -321,5 +321,318 @@ class C : B
 {
     public void Z() { }
 }
+#endregion
+```
+
+***
+# Nesne Tabanlı Programlama #21 - Polimorfizm Türleri ve Tür Dönüşüm Operatörleri - 2. Bölüm
+- Bir nesnenin birden fazla türdeki referans tarafından işaretlenebilmesine polimorfizm diyoruz.
+
+- Polimorfizm OOP'nin neredeyse temelini teşkil etmektedir. Polimorfizmi bilmeden OOP kodu yazmak neredeyse mümkün değil hele hele ileride göreceğiz design pattern yapılanmaları vs hep zaten bu yaklaşımlar/felsefeler üzerine kurulu.
+
+<img src="31.png" width="auto">
+
+## Polimorfizm Türleri
+- Statik Polimorfizm
+
+- Dinamik Polimorfizm
+
+- Polimorfizm'de iş sahasında dillendirilmeyen iki tür vardır.
+  * Statik Polimorfizm
+  * Dinamik Polimorfizm
+
+<img src="32.png" width="auto">
+
+## Polimorfizm Türleri - Static Polimorfizm
+- Static, ileride göreceğimiz bir kavramdır.
+
+- Şimdilik sadece Polimorfizm çerçevesinde Static Polimorfizm'i değerlendireceğiz.
+
+- Static polimorfizm; derleme zamanında sergilenen polimorfizm'dir. Hangi fonksiyonun çağrılacağına derleme zamanında karar verilir.
+
+- C#'da static polimorfizm deyince aklımıza `Metot Overloading` terimi gelmelidir.
+
+- `Metot Overloading`; aynı isimde birbirinden farklı imzalara sahip olan metotların tanımlanmasıdır. Ya da başka deyişle bir isme birden fazla farklı türde metot yüklemektir. Haliyle burada bir metodun birden fazla formunun olması `polimorfizm'ken`, bunlardan kullanılacak olanın derleme zamanında bilinmesi `statik polimorfizm` olarak nitelendirilmektedir.
+
+- Bir sınıfta aynı isimde birden fazla metot tanımlamaya metot overloading diyoruz.
+
+- Metotlarda birden fazla form söz konusu olduğunda buna da polimorfizm denmektedir ve hangi metodun kullanılacağı ancak ve ancak derleme zamanında bilinebileceğinden dolayı buna statik polimorfiz deniliyor.
+
+- Overload edilmiş metotlardan derleme zamanında kullanılması durumuna biz statik polimorfizm diyoruz.
+
+- Metot overloading durumundaki overload edilmiş metotlardan hangisinin kullanılacağının derleme sürecinde bilinebilmesine `statik polimorfizm` deriz.
+
+```C#
+Matematik m = new Matematik();
+m.Topla(40,50);
+
+class Matematik
+{
+    public long Topla(int s1, int s2)
+        => s1 + s2;
+
+    public long Topla(int s1, int s2, int s3)
+        => s1 + s2 + s3;
+
+    public long Topla(int s1, int s2, int s3, int s4)
+        => s1 + s2 + s3 + s4;
+
+}
+```
+
+<img src="33.png" width="auto">
+
+## Polimorfizm Türleri - Dynamic Polimorfizm
+- Dinamik polimorfizm; çalışma zamanında sergilenen polimorfizm'dir. Yani hangi fonksiyonun çalışacağına run time'da karar verilir.
+
+- C#'da dinamik polimorfizm deyince akla `Metot Override` gelmektedir.
+
+- `Metot Override`; base class'ta virtual olarak işaretlenmiş metotların derived class'ta override edilerek ezilmesi/yeniden yazılması işlemidir. Haliyle burada aynı isimde birden fazla forma sahip fonksiyonun olması `polimorfizm`'ken, bunlardan hangisinin kullanılacağının çalışma zamanında bilinmesi `dinamik polimorfizm` olarak nitelendirilmektedir
+
+- Statik anlam olarak sabite karşılık gelir yani belli ne olduğu belli ama dinamik değişkenlik gösterebilir yani çalışma zamanı çalışma zamanında her an herşey olabilir önceden belli değil o anda verilen kararlar bir sonraki verilenler önceki verilenlerle benzerlik göstermeyebilir haliyle buna dinamik çok biçimlilik deniliyor.
+
+- Eğer ki derleme zamanında bir işlem yapıyorsan polimorfizm açısından bu statik çok biçimlilikken runtime'da yani çalışma zamanında sergilenen polimorfizm'e dinamik çok biçimlilik deniliyor. 
+
+- Statik polimorfizmde hangi fonksiyonun çalışacağına derleme zamanında karar veriyoruz. Ama dinamik çok biçimlilikte hangi fonksiyonun çalışacağına runtime'da yani o anda çalışma sürecinde karar veriliyor.
+
+- Yukarıdan base `class`tan gelen metotları eziyorsan eğer o ezme durumları runtime'da gerçekleştiriliyor.
+
+- Base `class`larda tanımlanmış olan herhangi bir `virtual` yani sanal yapılanma derived `class`ta ezilip ezilmediğinin durumu çalışma zamanında bakılıyor.
+
+- Base `class`lardaki sanal bir yapılanmanın derived `class`larda ezilip ezilmediğini yani `override` edilip edilmediğinin kararı runtime'da veriliyor işte biz buna dinamik çok biçimlilik deriz.
+
+```C#
+Arac a = new Arac();
+a.Calistir();
+Taksi t = new Taksi();
+t.Calistir();
+Taksi t2 = new Taksi();
+t2.Calistir();
+
+public class Arac
+{
+    public virtual void Calistir()
+        => System.Console.WriteLine("Araç Çalıştı...");
+}
+public class Taksi : Arac
+{
+    public override void Calistir()
+        => System.Console.WriteLine("Taksi Çalıştı...");
+}
+```
+
+<img src="34.png" width="auto">
+
+## Polimorfizm Durumlarında Tür Dönüşümleri
+- Polimorfizm OOP'de bir nesnenin kalıtımsal açıdan ataları olan referanslar tarafından işaretlenebilmesidir. Haliyle ilgili nesne, by ataları olan referans türlerine göre dönüştürülebilmektedir.
+
+- Dikkat edersen eğer Polimorfizm durumlarında kalıtımsal açıdan üst bir referans ile işaretlenebilmiş herhangi bir nesneyi kendi türünden işaretleyebilmek için Cast operatörünü kullanarak object türüne özel olan UnBoxing'e benzer bir hamlede bulunmuş oluyoruz... Buradan anlıyoruz ki, object türünde gerçekleştirilen UnBoxing durumu esasında object türü ile gerçekleştirilebilen Polimorfizm'in bir sonucudur...
+
+<img src="35.png" width="auto">
+<img src="36.png" width="auto">
+
+- Birden fazla farklı türdeki nesneleri tek bir referans üzerinden işaratleyebiliyorduk ya da bir nesneyi birden fazla referansla da işaretleyebiliyorduk.
+
+- Alt türler üst türün referansını karşılayamaz!!
+
+<img src="37.png" width="auto">
+
+- `object` zaten bir `class` değil mi bir nesne adı üzerinde obje haliyle bu obje durumunda da tür dönüşümü yaparken özünde biz zaten Polimorfizm'de buradaki yapılanmayı kullanıyoruz. Eğer ki sen bunu `object`te yapıyorsan buna boxing unboxing diyoruz.
+
+- `object` bütün türlerin atası olduğundan dolayı altındaki herhangi bir türü kendi özünde elde edebilmek için cast operatörünü kullanıyorduk. Haliyle polimorfizm'de de bu kural geçerlidir.
+
+## object Türündeki Boxing/Unboxing Davranışının Polimorfizm Açısından Değerlendirmesi
+<img src="38.png" width="auto">
+
+- `object` C#'ta bütün türlerin atasıdır. Bütün türler otomatik olarak `object` türüne girer. `object` .Net'te temel ademi bir sınıftır.
+
+- `object`te bir değer atama işlemine boxing derken `object`in içerisinden o değeri kendi türünde elde etme operasyonuna unboxing diyorduk.
+
+- Boxing unboxing dediğimiz kavram özünde nesne tabanlı programlamadaki nesnelerin davranışıyla alakalı bir durum ve bu polimorfizm olmadığı sürece bir anlam ifade etmez. `object` ata en üst sınıf olduğundan dolayı direkt mevzusunu yaptığımız bir yapı ama sen bunu alt sınıflarada kendi oluşturmuş olduğun bu sınıflara da indirgeyebilirsin.
+
+- Boxing unboxing dediğimiz yapılanma nesne tabanlı programlamada tüm nesneler arasında geçişlerde sağlanabilmektedir. 
+
+- Boxing herhangi bir Stack'teki veriyi nesne olmayan veriyi nesneye dönüştürebilmek Stack'teki herhangi bir türü Heap'e alabilmek için yapılan bir uygulamadır. Bunun dışında da birçok yerde kullanılır. Aslında bu polimorfizm'in getirmiş olduğu bir özellik. `object`ten türediği için bütün türler `object` buradaki manevrayı kullanabilir. Haliyle bu manevrayı biz kendi sınıflarımızda da kullanabiliyoruz.
+
+<img src="39.png" width="auto">
+
+## Cast Operatörü İle Tür Dönüşümü
+- Polimorfizm durumlarında tür dönüşümünü gerçekleştirebilmek için Cast ya da as operatörleri kullanılabilir.
+
+- Misal;
+  * Üst türden alt türe kalıtımsal ilişkide dönüşüm sağlar.
+  * Eğer ki, kalıtımsal ilişki olmayan herhangi bir türe dönüştürülmeye çalışılırsa derleyici hatası verecektir.
+  * Yok eğer kalıtımsal ilişkide olup fiziksel nesnenin hiyerarşik altında olan bir türe dönüştürülmeye çalışılırsa run time hatası verecektir.
+  * Tersine olarak, kalıtımsal ilişkide alt türden üst türe cast operatörü ile de bir dönüşüm sağlamaktadır.
+  * Burada da yine kalıtımsal ilişki gerekmekte aksi taktirde derleyici hatası ile karşılaşılabilmektedir.
+
+- Misal; D türü A'dan kalıtım almıyorsa eğer hiyerarşide yer edinmeyeceğinden dolayı bu durumda derleyici hatası verecektir. Yok eğer kalıtımsal olarak C'nin altında A'nın torunu ise fiziksel C nesnesinin kendisinden küçük olan D referansıyla işaretlenmesi Polimorfizm mantığı gereği mümkün olamayacağı için run time hatası verecektir.
+
+- Tersine olarak, kalıtımsal ilişkide alt türden üst türe cast operatörü ile de bir dönüşüm sağlamaktadır.
+
+- Burada da yine kalıtımsal ilişki gerekmekte aksi taktirde derleyici hatası ile karşılaşılabilmektedir.
+
+- Kalıtımsal ilişki olmadığı taktirde cast operatörü alenen hata verecektir.
+
+```C#
+A a2 = new C();
+C c = (C)a2;
+D d = (D)a2;
+object o = 123;
+int i = (int)o;
+
+public class A { }
+public class B : A { }
+public class C : B { }
+public class D { }
+```
+
+- Bir nesneyi kendisi ve üzerindeki sınıflar yani hiyerarşik olarak üstlerindeki sınıfların referansları işaretleyebilir.
+
+<img src="40.png" width="auto">
+<img src="41.png" width="auto">
+
+## as Operatörü İle Tür Dönüşümü
+- Cast gibi kalıtımsal ilişki olan türler arasında referans dönüşümü yapabilmemizi sağlayan operatördür.
+
+- Dönüşüm esnasında hiyerarşik olarak tüm türlere dönüşüm sağlar. Lakin kalıtımsal ilişkide olunmayan türlerde derleyici hatası verecektir.
+
+- Ya da kalıtımsal ilişkide olup fiziksel nesnenin türünden daha alt hiyerarşide olan nesnelere dönüştürülmeye çalışıldığında Polimorfizm mantığı gereği ilgili referans o nesneyi karşılayamayacağından `run time hatası VERMEYECEK!` geriye `null` dönecektir.
+
+- Cast operatörünün as operatöründen farkı; biri dönüşüm sağlanamıyorsa hata fırlatırken(Cast), diğeri `null` dönmektedir(`as`)
+
+```C#
+A a2 = new C();
+// D d = (D)a2;//Hata
+D d = a2 as D;//Null
+
+public class A { }
+public class B : A { }
+public class C : B { }
+public class D : C { }
+```
+
+- `as` operatörü uygulamayı patlatmaz dönüşüm başarılıysa belirtilen türü eğer başarısızsa `null` değerini döner.
+
+<img src="42.png" width="auto">
+
+## is Operatörü İle Tür Kontrolü
+- `is` operatörü kalıtımsal ilişkiye sahip nesnelerin Polimorfizm özelliğine nazaran fiziksel olarak hangi türde olduğunu veren bir operatördür.
+
+- Haliyle dikkat ederseniz fiziksel nesnenin kalıtım hiyerarşisine uygun olan türlere 'true' olmayan türlere ise `false` sonucunu döndürmektedir. Kalıtımsal ilişki olmayan sınıflarla yapılacak kontrolde de beklenildiği gibi 'false' değeri döndürecektir.
+
+- Haliyle çok biçimlilik uygulanmış bir nesnenin ihtiyaçdoğrultusunda (uygun olan) farklı bir türedönüştürülebilmesi için işi garantiye alabilmek adına önce `is` kontrolü ardından `Cast` ya da `as` operasyonu sağlanması kafiidir.
+
+- Türle ilgili bilgi edinebilmemizi sağlayan bir operatördür.
+
+- Bir derived `class`'tan nesne oluşturma talebinde bulunulduğunda kalıtımsal ilişkide compiler bu ilgili talep gönderen `class`a sorar senin base `class`ın var mı? Varsa eğer ilk önce ona gider. Daha bu `class`ın nesnesi oluşturulmadı. Haliyle bundan nesne oluşturacak buna da sorar senin base `class`ın var mı? Bu şekilde silsile ile en baştaki ataya kadar gidecektir. İlk başta en baştaki atadan nesne oluşturmaya başlayacak daha sonra sırasıyla nesneleri oluşturduktan sonra en son talep edilen nesne oluşturulacaktır.
+
+- Üst sınıflardan miras edilecek memberlara ihtiyacımız var bu memberların miras edilebilmesi için o memberların bulunduğu sınıfların nesnelerinin önceden oluşturulmuş olması gerekiyorki en sona bana ait olacak yani bana gelecek bu nesneler en son bende toplanmalı. Yani en son ben oluşturulmalıyım. özetle benim büyük büyük dedem doğmuş olmalı ki sonra dedem doğmalı sonra babam en sonda ben doğayım. Kiminin saçını aldım kiminin göz rengini aldım vs. Yani burada bunların hepsini alabilmem için önce onların varolması lazım ki bana gelmeli. Haliyle burada da aynı mantık biyolojik mantık burada da geçerli.
+
+- Hiyerarşik olarak ilgili nesnenin altında kalıyorsa yine `false` değerini döndürecektir.
+
+```C#
+A a3 = new C();
+if (a3 is D)
+{
+    D d2 = a3 as D;
+}
+else if (a3 is C)
+{
+    C c = a3 as C;
+}
+```
+
+<img src="43.png" width="auto">
+<img src="44.png" width="auto">
+
+## C# Examples
+```C#
+namespace polimorfizm;
+class Program
+{
+    static void Main(string[] args)
+    {
+        #region Statik Polimorfizm
+        Matematik m = new Matematik();
+        m.Topla(40, 50);
+        #endregion
+        #region Dinamik Polimorfizm
+        Arac a = new Arac();
+        a.Calistir();
+
+        Taksi t = new Taksi();
+        t.Calistir();
+
+        Taksi t2 = new Taksi();
+        t.Calistir();
+        #endregion
+        #region Cast
+        // A a2 = new C();
+
+        // C c = (C)a2;
+
+        // D d = (D)a2;
+
+        // object o = 123;
+        // int i = (int)o;
+        #endregion
+        #region As
+        A a2 = new C();
+        // D d = (D)a2;//Hata
+        D d = a2 as D;//Null
+        #endregion
+        #region is
+        A a3 = new C();
+        if (a3 is D)
+        {
+            D d2 = a3 as D;
+        }
+        else if (a3 is C)
+        {
+            C c = a3 as C;
+        }
+        #endregion
+    }
+}
+#region Statik Polimorfizm
+class Matematik
+{
+    public long Topla(int s1, int s2)
+        => s1 + s2;
+
+    public long Topla(int s1, int s2, int s3)
+        => s1 + s2 + s3;
+
+    public long Topla(int s1, int s2, int s3, int s4)
+        => s1 + s2 + s3 + s4;
+
+}
+#endregion
+
+#region Dinamik Polimorfizm
+public class Arac
+{
+    public virtual void Calistir()
+        => System.Console.WriteLine("Araç Çalıştı...");
+}
+public class Taksi : Arac
+{
+    public override void Calistir()
+        => System.Console.WriteLine("Taksi Çalıştı...");
+}
+#endregion
+
+#region Cast
+// public class A { }
+// public class B : A { }
+// public class C : B { }
+// public class D : C { }
+#endregion
+#region As
+public class A { }
+public class B : A { }
+public class C : B { }
+public class D : C { }
 #endregion
 ```

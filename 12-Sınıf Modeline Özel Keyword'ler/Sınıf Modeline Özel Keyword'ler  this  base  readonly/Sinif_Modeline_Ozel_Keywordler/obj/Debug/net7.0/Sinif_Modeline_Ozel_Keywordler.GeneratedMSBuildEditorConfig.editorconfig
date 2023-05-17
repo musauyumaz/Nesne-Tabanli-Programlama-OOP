@@ -1,0 +1,11 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Sinif_Modeline_Ozel_Keywordler
+build_property.ProjectDir = d:\Github\Nesne-Tabanli-Programlama-OOP\12-Sınıf Modeline Özel Keyword'ler\Nesne Tabanlı Programlama #23 - Sınıf Modeline Özel Keyword'ler  this  base  readonly\Sinif_Modeline_Ozel_Keywordler\

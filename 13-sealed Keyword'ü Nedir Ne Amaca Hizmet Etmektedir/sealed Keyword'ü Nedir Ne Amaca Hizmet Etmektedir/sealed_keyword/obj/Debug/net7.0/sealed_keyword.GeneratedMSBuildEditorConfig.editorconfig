@@ -7,5 +7,5 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
-build_property.RootNamespace = Sinif_Modeline_Ozel_Keywordler
-build_property.ProjectDir = d:\Github\Nesne-Tabanli-Programlama-OOP\12-Sınıf Modeline Özel Keyword'ler\Sınıf Modeline Özel Keyword'ler  this  base  readonly\Sinif_Modeline_Ozel_Keywordler\
+build_property.RootNamespace = sealed_keyword
+build_property.ProjectDir = d:\Github\Nesne-Tabanli-Programlama-OOP\13-sealed Keyword'ü Nedir Ne Amaca Hizmet Etmektedir\Nesne Tabanlı Programlama #24 - sealed Keyword'ü Nedir Ne Amaca Hizmet Etmektedir\sealed_keyword\

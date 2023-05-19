@@ -1,9 +1,3 @@
----
-modified: 2023-05-16T13:51:44.735Z
-title: "Nesne Tabanlı Programlama #22 - Nesneler Arası İlişki Türleri
-  (Association-Aggregation-Composition)"
----
-
 ***
 # Nesne Tabanlı Programlama #22 - Nesneler Arası İlişki Türleri (Association-Aggregation-Composition)
 <img src="1.png" width="auto">

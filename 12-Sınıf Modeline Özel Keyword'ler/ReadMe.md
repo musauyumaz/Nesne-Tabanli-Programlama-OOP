@@ -1,9 +1,3 @@
----
-modified: 2023-05-17T10:27:21.671Z
-title: "Nesne Tabanlı Programlama #23 - Sınıf Modeline Özel
-  Keyword'ler  this  base  readonly"
----
-
 # Nesne Tabanlı Programlama #23 - Sınıf Modeline Özel Keyword'ler  this  base  readonly
 ## this Keyword'ü
 - Bir sınıfın, uygulamanın herhangi bir noktasında üretilmiş olan instancle'larını/object'lerini/nesnelerini sınıf içerisinde temsil etmemizi sağlayan bir keyword'dür.

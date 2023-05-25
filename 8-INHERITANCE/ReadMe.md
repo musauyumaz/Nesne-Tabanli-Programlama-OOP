@@ -1,8 +1,3 @@
----
-modified: 2023-05-03T13:46:45.778Z
-title: "Nesne Tabanlı Programlama #16 - Inheritance(Kalıtım) Nedir? 1. Bölüm"
----
-
 ***
 # Nesne Tabanlı Programlama #16 - Inheritance(Kalıtım) Nedir? 1. Bölüm
 <img src="1.png" width = "auto">

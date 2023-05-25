@@ -1,3 +1,4 @@
+***
 # Nesne Tabanlı Programlama #24 - sealed Keyword'ü Nedir? Ne Amaca Hizmet Etmektedir?
 <img src="1.png" width="auto">
 

@@ -1,3 +1,4 @@
+***
 # Nesne Tabanlı Programlama #25 - Partial Yapıları İnceleyelim
 <img src="1.png" width="auto">
 

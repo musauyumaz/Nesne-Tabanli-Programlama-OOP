@@ -1,0 +1,11 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Abstraction
+build_property.ProjectDir = d:\Github\Nesne-Tabanli-Programlama-OOP\14-Abstraction Kavramı Nedir\Nesne Tabanlı Programlama #26 - Abstraction Kavramı Nedir\Abstraction\

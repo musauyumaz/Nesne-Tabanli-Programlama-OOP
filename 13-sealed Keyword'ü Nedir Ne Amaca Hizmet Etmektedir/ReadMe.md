@@ -1,9 +1,4 @@
----
-modified: 2023-05-18T10:11:18.485Z
-title: "Nesne Tabanlı Programlama #24 - sealed Keyword'ü Nedir? Ne Amaca Hizmet
-  Etmektedir?"
----
-
+***
 # Nesne Tabanlı Programlama #24 - sealed Keyword'ü Nedir? Ne Amaca Hizmet Etmektedir?
 <img src="1.png" width="auto">
 

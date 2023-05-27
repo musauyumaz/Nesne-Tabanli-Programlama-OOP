@@ -10,6 +10,10 @@ title: "Nesne Tabanlı Programlama #26 - Abstraction Kavramı Nedir?"
 
 <img src="1.png" width="auto">
 
+- Bir varlık ya da sistemi incelerken, fiziksel, mekansal, ve zamansal nitelikleri içinden ilgimizi çekmeyen kısımları ayıklamak sureti ile sadece işimize yarayan kısımlara odaklanmak.
+
+- Farklı kod parçalarının kompleks kısımlarını, sahip oldukları ortak davranışlar, amaçlar, karakteristik özellikler arkasında saklamak sayesinde daha anlaşılır ve kolay kullanılabilir kod yazmaktır abstraction.
+
 ## Abstraction Nedir?
 - Abstraction bir mantıktır! Bir davranıştır.
 

@@ -1,3 +1,4 @@
+***
 # Nesne Tabanlı Programlama #26 - Abstraction Kavramı Nedir?
 - Abstraction herhangi bir programlama dilinin bir özelliği değildir. Aynı şekilde Object Oriented felsefesinin de getirmiş olduğu bir özellik değildir. Biz sadece genellikle Object Oriented çalışmalarında kullandığımız ve bizim işimizi kolaylaştıran bir davranış olarak abstraction'ı değerlendiririz.
 

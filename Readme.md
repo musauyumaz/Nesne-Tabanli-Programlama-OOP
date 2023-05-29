@@ -15,3 +15,5 @@
 - ## [Sınıf Modeline Özel Keyword'ler](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/12-S%C4%B1n%C4%B1f%20Modeline%20%C3%96zel%20Keyword'ler/ReadMe.md)
 - ## [sealed Keyword'ü Nedir Ne Amaca Hizmet Etmektedir](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/13-sealed%20Keyword'%C3%BC%20Nedir%20Ne%20Amaca%20Hizmet%20Etmektedir/ReadMe.md)
 - ## [Partial Yapıları İnceleyelim](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/14-Partial%20Yap%C4%B1lar%C4%B1%20%C4%B0nceleyelim/ReadMe.md)
+- ## [Abstraction Kavramı Nedir](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/15-Abstraction%20Kavram%C4%B1%20Nedir/ReadMe.md)
+- ## [Abstract Class Nedir? Ne Amaçla Kullanılmaktadır?](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/16-Abstract%20Class%20Nedir%20Ne%20Ama%C3%A7la%20Kullan%C4%B1lmaktad%C4%B1r/ReadMe.md)

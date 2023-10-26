@@ -1,5 +1,5 @@
 ---
-modified: 2023-10-16T10:23:55.175Z
+modified: 2023-10-17T06:05:54.790Z
 title: "Nesne Tabanlı Programlama #28 - Interface Nedir Ne Amaçla
   Kullanılmaktadır - I"
 ---
@@ -885,9 +885,3 @@ interface IW
 
 #endregion
 ```
-
-
-
-
-
- 

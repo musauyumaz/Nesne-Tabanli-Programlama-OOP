@@ -17,3 +17,5 @@
 - ## [Partial Yapıları İnceleyelim](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/14-Partial%20Yap%C4%B1lar%C4%B1%20%C4%B0nceleyelim/ReadMe.md)
 - ## [Abstraction Kavramı Nedir](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/15-Abstraction%20Kavram%C4%B1%20Nedir/ReadMe.md)
 - ## [Abstract Class Nedir? Ne Amaçla Kullanılmaktadır?](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/16-Abstract%20Class%20Nedir%20Ne%20Ama%C3%A7la%20Kullan%C4%B1lmaktad%C4%B1r/ReadMe.md)
+- ## [Interface Nedir Ne Amaçla Kullanılmaktadır - I](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/17-Interface%20Nedir%20Ne%20Ama%C3%A7la%20Kullan%C4%B1lmaktad%C4%B1r%20-%20I/ReadMe.md)
+- ## [Interface - Explicity Implement & Default Implementation - II](https://github.com/musauyumaz/Nesne-Tabanli-Programlama-OOP/blob/main/18-Interface%20-%20Explicity%20Implement%20%26%20Default%20Implementation%20-%20II/ReadMe.md)

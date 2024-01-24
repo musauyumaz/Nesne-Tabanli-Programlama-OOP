@@ -1,8 +1,3 @@
----
-modified: 2023-10-26T11:28:53.317Z
-title: "Nesne Tabanlı Programlama #29 - Interface - Explicity Implement &
-  Default Implementation - II"
----
 
 ***
 # Nesne Tabanlı Programlama #29 - Interface - Explicity Implement & Default Implementation - II

@@ -1,9 +1,4 @@
----
-modified: 2023-10-17T06:05:54.790Z
-title: "Nesne Tabanlı Programlama #28 - Interface Nedir Ne Amaçla
-  Kullanılmaktadır - I"
----
-
+***
 # Nesne Tabanlı Programlama #28 - Interface Nedir Ne Amaçla Kullanılmaktadır - I
 <img src="1.png" width="auto">
 

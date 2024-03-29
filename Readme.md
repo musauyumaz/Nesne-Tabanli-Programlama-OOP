@@ -1,4 +1,4 @@
-# Özel Ders Formatında A’dan Z’ye Nesne Tabanlı Programlama Eğitimi - 1. Etap
+# Özel Ders Formatında A’dan Z’ye Nesne Tabanlı Programlama - 1. Etap
 ***
 # [Bu notları Gençay Yıldız hocamın sayesinde izlediğim bu playlistten öğrendim.](https://www.youtube.com/playlist?list=PLQVXoXFVVtp306cqgKyC8NoxCmHIuWVBK)  Herkesin izlemesini tavsiye ederim. Mükemmel bir anlatım. Böyle mükemmel bir içerikli [Türkçe kaynağı](https://www.youtube.com/c/Gen%C3%A7ayY%C4%B1ld%C4%B1z) hiçbir yerde bulamazsınız.
 ***

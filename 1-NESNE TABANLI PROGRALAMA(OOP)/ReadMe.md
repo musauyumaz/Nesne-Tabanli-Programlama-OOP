@@ -1,5 +1,7 @@
 ***
 # Nesne Tabanlı Programlama #1 - Nesne Anatomisi - Referans Türlü Değişkenler
+- Yazılımda teori çok önemli yani pratik varsa eğer bunu destekleyen sağlam bir kolondur teori. Teoriyi es geçemezsin. Hatta anlatılan bütün teorik dersler çok önemlidir. Bu bir tek yazılımda değil bütün her yerde önemli. Teori dediğiniz olayın genel çizgisidir. Sen bu genel çizgiyi bilmeden neyin pratiğini yaptığını bilemezsin. Bizim genellikle gençlerimizde özellikle bişeyin teorisine hakim olmak gibi bişey yok. Direkt pratiği görelim hemen böyle anadolu çocukluğpu böyle kanımız kaynıyor hızlı bir şekilde mevzuya girelim ne yazık ki mevzular senin istediğin şekilde değil. Onun için ilk önce teorisine hakim olman gerekiyorsa hakim olacaksın ardından pratikte ne yapılması gerekiyorsa orada eğlen yeter ki sen ne yaptığını bil. Teori önemli.
+
 <img src="1.png" width="auto">
 
 - Günümüzde nesne tabanlı programlama birçok modern dil tarafından desteklenir haldedir.
@@ -45,7 +47,6 @@
 
 - Buradaki nesne kavramı gerçek hayattaki bütün olguları/nesneleri aklına ne geliyorsa her birini yazılımda simüle edebilmeni sağlayan nesne dediğimiz yapılarla programa yazmanı sağlayan bir yaklaşımdır nesne tabanlı programlama.
 
-
 - Herşey nesneden ibaret diyelim o felsefeden yola çıktığında herşey nesneden ibaretse eğer yazılımda nesne tabanlı programlama bu felsefenin üzerine kurulmuş oturtulmuş bir yaklaşımdır diyebiliriz. Herşey ama herşeyi nesneden ibaret gören bir programlama yaklaşımıdır Object Oriented Programming...
 
 - Nesne tabanlı programlama, programlama dillerinin içerisinde kullanılan bir yaklaşım ve bu yaklaşımdaki temel esas herşeyin bir nesne olarak görülmesi.
@@ -76,13 +77,13 @@
 
 - Nesnenin içinde bir nesneye dair içinde elemanlar barındıran alanlar var ve bu elemanları/değerleri barındıran alanlardaki değerleri işleyebilmek için içinde kendine göre eylemsel fonksiyonlar var. Bu fonksiyonlar aracılığıyla biz nesnenin içerisindeki değerleri işleyerek sonuçlar üretebiliyor farklı değerler ortaya koyabiliyoruz. Yani nesne tek başına bir ekosisteme sahip. Biz bu funciton'lara ileride metotlar, property'ler, indexer'lar diyeceğiz. Bunların her birinin içerisinde nesnenin içerisindeki o fieldlardaki değerleri tek tek alıp ya da lazım olanları alıp operasyonlara/işlemlere tabi tutabiliyoruz.
 
-- Prosedürel programlamada bir sınıftaki bütüm öğrencilerin yaşlarını tutacaksam eğer ben bu sınıftaki bütün öğrencilere dair tek tek yaşları değişkenlere atıyorum. Şimdi tamam eyvallah peki hangi öğrencinin yaşı nedir sorusunu sorduğumda yapmam gereken işlem ne burada? İşte bu sorunun cevabını prosedürel programlamada vermek çok zor. Niye? İlk önce bir değişken tanımlayacaksın `string` adını yazacaksın öğrencinin ardından bir değişken daha tanımlayacaksın `int` yaşını tutacaksın. Şimdi her yer değişken kaynayacak kodun içinde hangi değişken hangi öğrencinin değerini tutuyor bunu orada ayarlayabilmen arap saçı gibi bir durum.                                    Halbuki sen şunu yapsan; Bir sınıftaki her bir öğrenciyi nesne olarak tanımlasan ve bu öğrencilerin bir adı alanı fieldı olsa birde yaşı field'ı olsa şimdi bana ait olan benim için oluşturulmuş olan nesne içindeki bir field'da benim adımı tutsa bir başka field'da da yaşımı tutsa bu nesne hangi öğrencinin hangi yaşını tuttuğuna dair somut bir bilgi verecektir sana ekstradan bir işlem yapmana gerek yok. Başkasının nesnesini aldığın zaman o nesnedeki adına bakarsın örneğin Hilmi kaç yaşındaymış ona bakarsın ve dersin ki bu Hilmi kesinlikle şu yaştadır dersin. Çünkü karışma ihtimali yok. 
+- Prosedürel programlamada bir sınıftaki bütüm öğrencilerin yaşlarını tutacaksam eğer ben bu sınıftaki bütün öğrencilere dair tek tek yaşları değişkenlere atıyorum. Şimdi tamam eyvallah peki hangi öğrencinin yaşı nedir sorusunu sorduğumda yapmam gereken işlem ne burada? İşte bu sorunun cevabını prosedürel programlamada vermek çok zor. Niye? İlk önce bir değişken tanımlayacaksın `string` adını yazacaksın öğrencinin ardından bir değişken daha tanımlayacaksın `int` yaşını tutacaksın. Şimdi her yer değişken kaynayacak kodun içinde hangi değişken hangi öğrencinin değerini tutuyor bunu orada ayarlayabilmen arap saçı gibi bir durum. Halbuki sen şunu yapsan; Bir sınıftaki her bir öğrenciyi nesne olarak tanımlasan ve bu öğrencilerin bir adı alanı fieldı olsa birde yaşı field'ı olsa şimdi bana ait olan benim için oluşturulmuş olan nesne içindeki bir field'da benim adımı tutsa bir başka field'da da yaşımı tutsa bu nesne hangi öğrencinin hangi yaşını tuttuğuna dair somut bir bilgi verecektir sana ekstradan bir işlem yapmana gerek yok. Başkasının nesnesini aldığın zaman o nesnedeki adına bakarsın örneğin Hilmi kaç yaşındaymış ona bakarsın ve dersin ki bu Hilmi kesinlikle şu yaştadır dersin. Çünkü karışma ihtimali yok. 
 
 - Kodu nesnel hale getirmek artık daha sistematik kod inşası oluşturmamızı sağlıyor ve yorumlanabilme açısından da olay daha da sistematik hale geliyor.
 
 - OOP dillerinde nesneyi inşa edebilmek için öncelikle bu nesneyi modellememiz gerekiyor. Senin bu nesneyi oluşturabilmen için senin bir `class`/sınıf oluşturman gerekecektir. Nesne = `class` Nesne diyorsak aklına sadece `class` gelecek.
 
-- Nesne `class`ın bir ürünüdür. Başka bişeyin değil. OOP'deki objeyi oluşturmak istiyorsan kesinlikle kod yazarken görmüş olduğunu o `class` yapıları varya kesinlikle onunla çalışmanız lazım. Başka bişeyle nesne oluşturmana müsaade etmez. Bir tek `class`la oluşturabilirsin.
+- Nesne `class`ın bir ürünüdür. Başka bişeyin değil. OOP'deki objeyi oluşturmak istiyorsan kesinlikle kod yazarken görmüş olduğunu o `class` yapıları varya kesinlikle onunla çalışmanız lazım. Başka bişeyle nesne oluşturmana müsaade etmez. Bir tek `class`la oluşturabilirsin. Tüm nesneler esasında bir sınıf modellemesinin örneğidir.
 
 - Bir `class`tan istediğin kadar nesne üretebilirsin. Bir `class`tan birden fazla nesne üreterek modelleme yapabilirsiniz. 
     * Örneğin Türkiye Cumhuriyet'inin TC Kimlik kartımız var değil mi her vatandaşa TC kimlik kartı veriyor. Şimdi bu kartın bir modeli vardır `class` modeli bir de 80 milyonda olan nesnesi vardır. Tabiki de birden fazla nesne üretebiliyoruz.
